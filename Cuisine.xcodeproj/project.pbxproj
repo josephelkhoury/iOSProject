@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6EC541D015908707000AE4E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541CF15908707000AE4E9 /* UIKit.framework */; };
+		6EC541D215908707000AE4E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541D115908707000AE4E9 /* Foundation.framework */; };
+		6EC541D415908707000AE4E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541D315908707000AE4E9 /* CoreGraphics.framework */; };
+		6EC541DA15908707000AE4E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541D815908707000AE4E9 /* InfoPlist.strings */; };
+		6EC541DC15908707000AE4E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541DB15908707000AE4E9 /* main.m */; };
+		6EC541E015908707000AE4E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541DF15908707000AE4E9 /* AppDelegate.m */; };
+		6EC541E315908707000AE4E9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */; };
+		6EC541E615908707000AE4E9 /* AcceuilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541E515908707000AE4E9 /* AcceuilViewController.m */; };
+		6EC541E815908707000AE4E9 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541E715908707000AE4E9 /* first.png */; };
+		6EC541EA15908707000AE4E9 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541E915908707000AE4E9 /* first@2x.png */; };
+		6EC541ED15908707000AE4E9 /* RecettesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541EC15908707000AE4E9 /* RecettesViewController.m */; };
+		6EC541EF15908707000AE4E9 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541EE15908707000AE4E9 /* second.png */; };
+		6EC541F115908707000AE4E9 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541F015908707000AE4E9 /* second@2x.png */; };
+		6EC541F9159092A2000AE4E9 /* Top10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541F8159092A2000AE4E9 /* Top10ViewController.m */; };
+		6EC541FC1590960A000AE4E9 /* RecetteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541FB1590960A000AE4E9 /* RecetteViewController.m */; };
+		6EC541FF159097B4000AE4E9 /* FavorisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541FE159097B4000AE4E9 /* FavorisViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6EC541CB15908707000AE4E9 /* Cuisine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuisine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EC541CF15908707000AE4E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6EC541D115908707000AE4E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6EC541D315908707000AE4E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6EC541D715908707000AE4E9 /* Cuisine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cuisine-Info.plist"; sourceTree = "<group>"; };
+		6EC541D915908707000AE4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EC541DB15908707000AE4E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6EC541DD15908707000AE4E9 /* Cuisine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cuisine-Prefix.pch"; sourceTree = "<group>"; };
+		6EC541DE15908707000AE4E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6EC541DF15908707000AE4E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6EC541E215908707000AE4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6EC541E415908707000AE4E9 /* AcceuilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceuilViewController.h; sourceTree = "<group>"; };
+		6EC541E515908707000AE4E9 /* AcceuilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcceuilViewController.m; sourceTree = "<group>"; };
+		6EC541E715908707000AE4E9 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		6EC541E915908707000AE4E9 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		6EC541EB15908707000AE4E9 /* RecettesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecettesViewController.h; sourceTree = "<group>"; };
+		6EC541EC15908707000AE4E9 /* RecettesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecettesViewController.m; sourceTree = "<group>"; };
+		6EC541EE15908707000AE4E9 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		6EC541F015908707000AE4E9 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		6EC541F7159092A1000AE4E9 /* Top10ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top10ViewController.h; sourceTree = "<group>"; };
+		6EC541F8159092A2000AE4E9 /* Top10ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top10ViewController.m; sourceTree = "<group>"; };
+		6EC541FA1590960A000AE4E9 /* RecetteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecetteViewController.h; sourceTree = "<group>"; };
+		6EC541FB1590960A000AE4E9 /* RecetteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecetteViewController.m; sourceTree = "<group>"; };
+		6EC541FD159097B4000AE4E9 /* FavorisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorisViewController.h; sourceTree = "<group>"; };
+		6EC541FE159097B4000AE4E9 /* FavorisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorisViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6EC541C815908707000AE4E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC541D015908707000AE4E9 /* UIKit.framework in Frameworks */,
+				6EC541D215908707000AE4E9 /* Foundation.framework in Frameworks */,
+				6EC541D415908707000AE4E9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6EC541C015908707000AE4E9 = {
+			isa = PBXGroup;
+			children = (
+				6EC541D515908707000AE4E9 /* Cuisine */,
+				6EC541CE15908707000AE4E9 /* Frameworks */,
+				6EC541CC15908707000AE4E9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6EC541CC15908707000AE4E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6EC541CB15908707000AE4E9 /* Cuisine.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6EC541CE15908707000AE4E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EC541CF15908707000AE4E9 /* UIKit.framework */,
+				6EC541D115908707000AE4E9 /* Foundation.framework */,
+				6EC541D315908707000AE4E9 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6EC541D515908707000AE4E9 /* Cuisine */ = {
+			isa = PBXGroup;
+			children = (
+				6EC541DE15908707000AE4E9 /* AppDelegate.h */,
+				6EC541DF15908707000AE4E9 /* AppDelegate.m */,
+				6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */,
+				6EC541E415908707000AE4E9 /* AcceuilViewController.h */,
+				6EC541E515908707000AE4E9 /* AcceuilViewController.m */,
+				6EC541E715908707000AE4E9 /* first.png */,
+				6EC541E915908707000AE4E9 /* first@2x.png */,
+				6EC541EB15908707000AE4E9 /* RecettesViewController.h */,
+				6EC541EC15908707000AE4E9 /* RecettesViewController.m */,
+				6EC541EE15908707000AE4E9 /* second.png */,
+				6EC541F015908707000AE4E9 /* second@2x.png */,
+				6EC541D615908707000AE4E9 /* Supporting Files */,
+				6EC541F7159092A1000AE4E9 /* Top10ViewController.h */,
+				6EC541F8159092A2000AE4E9 /* Top10ViewController.m */,
+				6EC541FA1590960A000AE4E9 /* RecetteViewController.h */,
+				6EC541FB1590960A000AE4E9 /* RecetteViewController.m */,
+				6EC541FD159097B4000AE4E9 /* FavorisViewController.h */,
+				6EC541FE159097B4000AE4E9 /* FavorisViewController.m */,
+			);
+			path = Cuisine;
+			sourceTree = "<group>";
+		};
+		6EC541D615908707000AE4E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6EC541D715908707000AE4E9 /* Cuisine-Info.plist */,
+				6EC541D815908707000AE4E9 /* InfoPlist.strings */,
+				6EC541DB15908707000AE4E9 /* main.m */,
+				6EC541DD15908707000AE4E9 /* Cuisine-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6EC541CA15908707000AE4E9 /* Cuisine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EC541F415908707000AE4E9 /* Build configuration list for PBXNativeTarget "Cuisine" */;
+			buildPhases = (
+				6EC541C715908707000AE4E9 /* Sources */,
+				6EC541C815908707000AE4E9 /* Frameworks */,
+				6EC541C915908707000AE4E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cuisine;
+			productName = Cuisine;
+			productReference = 6EC541CB15908707000AE4E9 /* Cuisine.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6EC541C215908707000AE4E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 6EC541C515908707000AE4E9 /* Build configuration list for PBXProject "Cuisine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6EC541C015908707000AE4E9;
+			productRefGroup = 6EC541CC15908707000AE4E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6EC541CA15908707000AE4E9 /* Cuisine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6EC541C915908707000AE4E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC541DA15908707000AE4E9 /* InfoPlist.strings in Resources */,
+				6EC541E315908707000AE4E9 /* MainStoryboard.storyboard in Resources */,
+				6EC541E815908707000AE4E9 /* first.png in Resources */,
+				6EC541EA15908707000AE4E9 /* first@2x.png in Resources */,
+				6EC541EF15908707000AE4E9 /* second.png in Resources */,
+				6EC541F115908707000AE4E9 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6EC541C715908707000AE4E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EC541DC15908707000AE4E9 /* main.m in Sources */,
+				6EC541E015908707000AE4E9 /* AppDelegate.m in Sources */,
+				6EC541E615908707000AE4E9 /* AcceuilViewController.m in Sources */,
+				6EC541ED15908707000AE4E9 /* RecettesViewController.m in Sources */,
+				6EC541F9159092A2000AE4E9 /* Top10ViewController.m in Sources */,
+				6EC541FC1590960A000AE4E9 /* RecetteViewController.m in Sources */,
+				6EC541FF159097B4000AE4E9 /* FavorisViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6EC541D815908707000AE4E9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EC541D915908707000AE4E9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EC541E215908707000AE4E9 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6EC541F215908707000AE4E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6EC541F315908707000AE4E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6EC541F515908707000AE4E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cuisine/Cuisine-Prefix.pch";
+				INFOPLIST_FILE = "Cuisine/Cuisine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6EC541F615908707000AE4E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cuisine/Cuisine-Prefix.pch";
+				INFOPLIST_FILE = "Cuisine/Cuisine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6EC541C515908707000AE4E9 /* Build configuration list for PBXProject "Cuisine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EC541F215908707000AE4E9 /* Debug */,
+				6EC541F315908707000AE4E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EC541F415908707000AE4E9 /* Build configuration list for PBXNativeTarget "Cuisine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EC541F515908707000AE4E9 /* Debug */,
+				6EC541F615908707000AE4E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6EC541C215908707000AE4E9 /* Project object */;
+}
