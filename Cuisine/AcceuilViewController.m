@@ -13,6 +13,8 @@
 @end
 
 @implementation AcceuilViewController
+@synthesize dataController = _dataController;
+@synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {

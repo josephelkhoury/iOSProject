@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecetteDataController.h"
 
 @interface AcceuilViewController : UIViewController
+
+@property (strong, nonatomic) RecetteDataController *dataController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
