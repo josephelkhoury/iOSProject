@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recette.h"
 
 @interface RecetteViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet UILabel *lblCategory;
+
+@property (strong, nonatomic) Recette *recette;
 
 @end

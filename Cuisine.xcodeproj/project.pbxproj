@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E048D3F159B4C56001F969D /* RecetteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E048D3E159B4C56001F969D /* RecetteDataController.m */; };
+		6E2CF6C715A33234009CD18C /* RecetteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CF6C615A33234009CD18C /* RecetteDataController.m */; };
 		6E4E9BC8159B425C0021676C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4E9BC5159B42510021676C /* CoreData.framework */; };
 		6E4E9BCB159B42830021676C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E9BC9159B42830021676C /* Model.xcdatamodeld */; };
-		6E4E9BCE159B433F0021676C /* Recette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E9BCD159B433F0021676C /* Recette.m */; };
 		6EC541D015908707000AE4E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541CF15908707000AE4E9 /* UIKit.framework */; };
 		6EC541D215908707000AE4E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541D115908707000AE4E9 /* Foundation.framework */; };
 		6EC541D415908707000AE4E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541D315908707000AE4E9 /* CoreGraphics.framework */; };
@@ -27,15 +26,14 @@
 		6EC541F9159092A2000AE4E9 /* Top10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541F8159092A2000AE4E9 /* Top10ViewController.m */; };
 		6EC541FC1590960A000AE4E9 /* RecetteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541FB1590960A000AE4E9 /* RecetteViewController.m */; };
 		6EC541FF159097B4000AE4E9 /* FavorisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541FE159097B4000AE4E9 /* FavorisViewController.m */; };
+		6ED2C14115A33BF900D8F379 /* Recette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED2C14015A33BF900D8F379 /* Recette.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6E048D3D159B4C56001F969D /* RecetteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecetteDataController.h; path = ../RecetteDataController.h; sourceTree = "<group>"; };
-		6E048D3E159B4C56001F969D /* RecetteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecetteDataController.m; path = ../RecetteDataController.m; sourceTree = "<group>"; };
+		6E2CF6C515A33234009CD18C /* RecetteDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecetteDataController.h; sourceTree = "<group>"; };
+		6E2CF6C615A33234009CD18C /* RecetteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecetteDataController.m; sourceTree = "<group>"; };
 		6E4E9BC5159B42510021676C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6E4E9BCA159B42830021676C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		6E4E9BCC159B433F0021676C /* Recette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recette.h; sourceTree = "<group>"; };
-		6E4E9BCD159B433F0021676C /* Recette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recette.m; sourceTree = "<group>"; };
 		6EC541CB15908707000AE4E9 /* Cuisine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuisine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EC541CF15908707000AE4E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6EC541D115908707000AE4E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +59,8 @@
 		6EC541FB1590960A000AE4E9 /* RecetteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecetteViewController.m; sourceTree = "<group>"; };
 		6EC541FD159097B4000AE4E9 /* FavorisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorisViewController.h; sourceTree = "<group>"; };
 		6EC541FE159097B4000AE4E9 /* FavorisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorisViewController.m; sourceTree = "<group>"; };
+		6ED2C13F15A33BF900D8F379 /* Recette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recette.h; sourceTree = "<group>"; };
+		6ED2C14015A33BF900D8F379 /* Recette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recette.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +109,11 @@
 		6EC541D515908707000AE4E9 /* Cuisine */ = {
 			isa = PBXGroup;
 			children = (
+				6E2CF6C515A33234009CD18C /* RecetteDataController.h */,
+				6E2CF6C615A33234009CD18C /* RecetteDataController.m */,
 				6EC541DE15908707000AE4E9 /* AppDelegate.h */,
 				6EC541DF15908707000AE4E9 /* AppDelegate.m */,
 				6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */,
-				6E048D3D159B4C56001F969D /* RecetteDataController.h */,
-				6E048D3E159B4C56001F969D /* RecetteDataController.m */,
 				6EC541E415908707000AE4E9 /* AcceuilViewController.h */,
 				6EC541E515908707000AE4E9 /* AcceuilViewController.m */,
 				6EC541E715908707000AE4E9 /* first.png */,
@@ -122,16 +122,16 @@
 				6EC541EC15908707000AE4E9 /* RecettesViewController.m */,
 				6EC541EE15908707000AE4E9 /* second.png */,
 				6EC541F015908707000AE4E9 /* second@2x.png */,
-				6EC541D615908707000AE4E9 /* Supporting Files */,
 				6EC541F7159092A1000AE4E9 /* Top10ViewController.h */,
 				6EC541F8159092A2000AE4E9 /* Top10ViewController.m */,
 				6EC541FA1590960A000AE4E9 /* RecetteViewController.h */,
 				6EC541FB1590960A000AE4E9 /* RecetteViewController.m */,
 				6EC541FD159097B4000AE4E9 /* FavorisViewController.h */,
 				6EC541FE159097B4000AE4E9 /* FavorisViewController.m */,
+				6ED2C13F15A33BF900D8F379 /* Recette.h */,
+				6ED2C14015A33BF900D8F379 /* Recette.m */,
 				6E4E9BC9159B42830021676C /* Model.xcdatamodeld */,
-				6E4E9BCC159B433F0021676C /* Recette.h */,
-				6E4E9BCD159B433F0021676C /* Recette.m */,
+				6EC541D615908707000AE4E9 /* Supporting Files */,
 			);
 			path = Cuisine;
 			sourceTree = "<group>";
@@ -221,8 +221,8 @@
 				6EC541FC1590960A000AE4E9 /* RecetteViewController.m in Sources */,
 				6EC541FF159097B4000AE4E9 /* FavorisViewController.m in Sources */,
 				6E4E9BCB159B42830021676C /* Model.xcdatamodeld in Sources */,
-				6E4E9BCE159B433F0021676C /* Recette.m in Sources */,
-				6E048D3F159B4C56001F969D /* RecetteDataController.m in Sources */,
+				6E2CF6C715A33234009CD18C /* RecetteDataController.m in Sources */,
+				6ED2C14115A33BF900D8F379 /* Recette.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

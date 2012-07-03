@@ -13,28 +13,47 @@
 @end
 
 @implementation RecetteViewController
+@synthesize lblName = _lblName;
+@synthesize lblCategory = _lblCategory;
+@synthesize recette = _recette;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Managing the detail item
+
+- (void)setRecette:(Recette *) newRecette
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (_recette != newRecette) 
+    {
+        _recette = newRecette;
+        // Update the view.
+        [self configureView];
     }
-    return self;
+}
+
+- (void)configureView
+{
+    // Update the user interface for the detail item.
+    Recette *theRecette = self.recette;
+    if (theRecette) 
+    {
+        self.lblName.text = theRecette.name;
+        self.lblCategory.text = theRecette.category;
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	// Do any additional setup after loading the view, typically from a nib.
+    [self configureView];
 }
 
 - (void)viewDidUnload
 {
+    self.recette = nil;
+    [self setLblName:nil];
+    [self setLblCategory:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
