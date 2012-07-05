@@ -17,5 +17,9 @@
 - (NSUInteger)countOfList;
 - (Recette *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addRecette:(Recette *)recette;
+- (NSMutableArray *)getRecettesFavoris;
+- (NSMutableArray *)getEntrees;
+- (NSMutableArray *)getPlats;
+- (NSMutableArray *)getDesserts;
 
 @end

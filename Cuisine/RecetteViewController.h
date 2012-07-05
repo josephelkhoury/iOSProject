@@ -12,7 +12,11 @@
 @interface RecetteViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCategory;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnFavoris;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) Recette *recette;
+
+- (IBAction)editFavori:(id)sender;
 
 @end

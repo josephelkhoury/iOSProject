@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AcceuilViewController.h"
 #import "RecettesViewController.h"
+#import "FavorisViewController.h"
 #import "RecetteDataController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

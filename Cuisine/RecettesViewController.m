@@ -16,6 +16,7 @@
 @synthesize dataController = _dataController;
 @synthesize managedObjectContext;
 @synthesize tblRecettes;
+@synthesize segFilter;
 
 - (void)viewDidLoad
 {
@@ -36,7 +37,7 @@
     /*Recette *recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:managedObjectContext];
 
     recette.name = @"Titre de la recette";
-    recette.category = @"Dessert";
+    recette.category = @"Entrée";
 
     [self.dataController addRecette:recette];
     [[self tblRecettes] reloadData];
@@ -50,6 +51,7 @@
 - (void)viewDidUnload
 {
     [self setTblRecettes:nil];
+    [self setSegFilter:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -65,7 +67,15 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-	return [self.dataController countOfList];
+    if(segFilter.selectedSegmentIndex == 0)
+        return [self.dataController countOfList];
+    else if(segFilter.selectedSegmentIndex == 1)
+        return [[self.dataController getEntrees] count];
+    else if(segFilter.selectedSegmentIndex == 2)
+        return [[self.dataController getPlats] count];
+    else if(segFilter.selectedSegmentIndex == 3)
+        return [[self.dataController getDesserts] count];
+    return 0;
 }
 
 
@@ -74,7 +84,17 @@
 	static NSString *CellIdentifier = @"RecetteCell";
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    Recette *recette = [self.dataController objectInListAtIndex:indexPath.row];
+    Recette *recette;
+    
+    if(segFilter.selectedSegmentIndex == 0)
+        recette = [self.dataController objectInListAtIndex:indexPath.row];
+    else if(segFilter.selectedSegmentIndex == 1)
+        recette = [[self.dataController getEntrees] objectAtIndex:indexPath.row];
+    else if(segFilter.selectedSegmentIndex == 2)
+        recette = [[self.dataController getPlats] objectAtIndex:indexPath.row];
+    else if(segFilter.selectedSegmentIndex == 3)
+        recette = [[self.dataController getDesserts] objectAtIndex:indexPath.row];
+    
     [[cell textLabel] setText:recette.name];
     [[cell detailTextLabel] setText:recette.category];
     
@@ -93,7 +113,17 @@
     if ([[segue identifier] isEqualToString:@"ShowRecetteDetails"]) 
     {
         RecetteViewController *detailViewController = [segue destinationViewController];
-        detailViewController.recette = [self.dataController objectInListAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        
+        if(segFilter.selectedSegmentIndex == 0)
+            detailViewController.recette = [self.dataController objectInListAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        else if(segFilter.selectedSegmentIndex == 1)
+            detailViewController.recette = [[self.dataController getEntrees] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        else if(segFilter.selectedSegmentIndex == 2)
+            detailViewController.recette = [[self.dataController getPlats] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        else if(segFilter.selectedSegmentIndex == 3)
+            detailViewController.recette = [[self.dataController getDesserts] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        
+        detailViewController.managedObjectContext = self.managedObjectContext;
     }
 }
 
@@ -103,4 +133,8 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)didFilter:(id)sender
+{
+    [tblRecettes reloadData];
+}
 @end

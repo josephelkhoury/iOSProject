@@ -56,4 +56,49 @@
     [self.masterRecetteList insertObject:recette atIndex:0];
 }
 
+- (NSMutableArray *)getRecettesFavoris
+{
+    NSMutableArray *favoris = [[NSMutableArray alloc] init];
+    for (Recette *recette in self.masterRecetteList)
+    {
+        if (recette.favori == [NSNumber numberWithInt:1])
+            [favoris addObject:recette];
+    }
+    return favoris;
+}
+
+- (NSMutableArray *)getEntrees
+{
+    NSMutableArray *entrees = [[NSMutableArray alloc] init];
+    for (Recette *recette in self.masterRecetteList)
+    {
+        if ([recette.category isEqualToString:@"Entrée"])
+            [entrees addObject:recette];
+    }
+    return entrees;
+}
+
+- (NSMutableArray *)getPlats
+{
+    NSMutableArray *plats = [[NSMutableArray alloc] init];
+    for (Recette *recette in self.masterRecetteList)
+    {
+        if ([recette.category isEqualToString:@"Plat"])
+            [plats addObject:recette];
+    }
+    return plats;
+}
+
+- (NSMutableArray *)getDesserts
+{
+    NSMutableArray *desserts = [[NSMutableArray alloc] init];
+    for (Recette *recette in self.masterRecetteList)
+    {
+        if ([recette.category isEqualToString:@"Dessert"])
+            [desserts addObject:recette];
+    }
+    return desserts;
+}
+
+
 @end

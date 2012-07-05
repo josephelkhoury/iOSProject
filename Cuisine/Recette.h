@@ -2,7 +2,7 @@
 //  Recette.h
 //  Cuisine
 //
-//  Created by SEKIMIA on 7/3/12.
+//  Created by SEKIMIA on 7/5/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -22,5 +22,6 @@
 @property (nonatomic, retain) NSString * preparation;
 @property (nonatomic, retain) NSString * rating;
 @property (nonatomic, retain) NSString * time;
+@property (nonatomic, retain) NSNumber * favori;
 
 @end

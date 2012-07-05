@@ -2,7 +2,7 @@
 //  Recette.m
 //  Cuisine
 //
-//  Created by SEKIMIA on 7/3/12.
+//  Created by SEKIMIA on 7/5/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -21,5 +21,6 @@
 @dynamic preparation;
 @dynamic rating;
 @dynamic time;
+@dynamic favori;
 
 @end

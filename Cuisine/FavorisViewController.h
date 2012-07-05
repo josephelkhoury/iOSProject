@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecetteDataController.h"
+#import "Recette.h"
+#import "RecetteViewController.h"
 
-@interface FavorisViewController : UIViewController
+@interface FavorisViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) RecetteDataController *dataController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) IBOutlet UITableView *tblRecettes;
 
 @end

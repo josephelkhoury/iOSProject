@@ -28,12 +28,16 @@
     AcceuilViewController *acceuilViewController = (AcceuilViewController *)[[[[tabBarController viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
     
     RecettesViewController *recettesViewController = (RecettesViewController *)[[[[tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
+    
+    FavorisViewController *favorisViewController = (FavorisViewController *)[[[[tabBarController viewControllers] objectAtIndex:3] viewControllers] objectAtIndex:0];
 
     RecetteDataController *aDataController = [[RecetteDataController alloc] init];
     acceuilViewController.dataController = aDataController;
     acceuilViewController.managedObjectContext = context;
     recettesViewController.dataController = aDataController;
     recettesViewController.managedObjectContext = context;
+    favorisViewController.dataController = aDataController;
+    favorisViewController.managedObjectContext = context;
     
     return YES;
 }
@@ -117,7 +121,7 @@
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ModelCuisine.momd"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ModeleCuisine.momd"];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
