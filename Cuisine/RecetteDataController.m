@@ -15,6 +15,7 @@
 
 @implementation RecetteDataController
 @synthesize masterRecetteList = _masterRecetteList;
+@synthesize entrees, plats, desserts;
 
 - (void)initializeDefaultDataList 
 {
@@ -69,33 +70,42 @@
 
 - (NSMutableArray *)getEntrees
 {
-    NSMutableArray *entrees = [[NSMutableArray alloc] init];
-    for (Recette *recette in self.masterRecetteList)
+    if (!entrees)
     {
-        if ([recette.category isEqualToString:@"Entrée"])
-            [entrees addObject:recette];
+        entrees = [[NSMutableArray alloc] init];
+        for (Recette *recette in self.masterRecetteList)
+        {
+            if ([recette.category isEqualToString:@"Entrée"])
+                [entrees addObject:recette];
+        }
     }
     return entrees;
 }
 
 - (NSMutableArray *)getPlats
 {
-    NSMutableArray *plats = [[NSMutableArray alloc] init];
-    for (Recette *recette in self.masterRecetteList)
+    if (!plats)
     {
-        if ([recette.category isEqualToString:@"Plat"])
-            [plats addObject:recette];
+        plats = [[NSMutableArray alloc] init];
+        for (Recette *recette in self.masterRecetteList)
+        {
+            if ([recette.category isEqualToString:@"Plat"])
+                [plats addObject:recette];
+        }
     }
     return plats;
 }
 
 - (NSMutableArray *)getDesserts
 {
-    NSMutableArray *desserts = [[NSMutableArray alloc] init];
-    for (Recette *recette in self.masterRecetteList)
+    if (!desserts)
     {
-        if ([recette.category isEqualToString:@"Dessert"])
-            [desserts addObject:recette];
+        desserts = [[NSMutableArray alloc] init];
+        for (Recette *recette in self.masterRecetteList)
+        {
+            if ([recette.category isEqualToString:@"Dessert"])
+                [desserts addObject:recette];
+        }
     }
     return desserts;
 }

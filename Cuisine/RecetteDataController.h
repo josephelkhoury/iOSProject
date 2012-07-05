@@ -11,8 +11,16 @@
 @class Recette;
 
 @interface RecetteDataController : NSObject
+{
+    NSMutableArray *entrees;
+    NSMutableArray *plats;
+    NSMutableArray *desserts;
+}
 
 @property (nonatomic, copy) NSMutableArray *masterRecetteList;
+@property (strong, nonatomic) NSMutableArray *entrees;
+@property (strong, nonatomic) NSMutableArray *plats;
+@property (strong, nonatomic) NSMutableArray *desserts;
 
 - (NSUInteger)countOfList;
 - (Recette *)objectInListAtIndex:(NSUInteger)theIndex;
