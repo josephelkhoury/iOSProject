@@ -12,12 +12,14 @@
 
 @interface RecetteDataController : NSObject
 {
+    NSMutableArray *all;
     NSMutableArray *entrees;
     NSMutableArray *plats;
     NSMutableArray *desserts;
 }
 
 @property (nonatomic, copy) NSMutableArray *masterRecetteList;
+@property (strong, nonatomic) NSMutableArray *all;
 @property (strong, nonatomic) NSMutableArray *entrees;
 @property (strong, nonatomic) NSMutableArray *plats;
 @property (strong, nonatomic) NSMutableArray *desserts;
@@ -26,6 +28,7 @@
 - (Recette *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addRecette:(Recette *)recette;
 - (NSMutableArray *)getRecettesFavoris;
+- (NSMutableArray *)getAllRecettes;
 - (NSMutableArray *)getEntrees;
 - (NSMutableArray *)getPlats;
 - (NSMutableArray *)getDesserts;

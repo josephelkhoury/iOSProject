@@ -206,7 +206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0ag-ey-VN0">
-                                <rect key="frame" x="0.0" y="73" width="320" height="294"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="295"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -245,14 +245,6 @@
                                     <outlet property="delegate" destination="3" id="o5D-lX-qei"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" id="MZw-Bb-veQ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="3" id="CyX-cH-Krh"/>
-                                </connections>
-                            </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Uh3-J0-Rnf">
                                 <rect key="frame" x="0.0" y="44" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -266,25 +258,33 @@
                                     <action selector="didFilter:" destination="3" eventType="valueChanged" id="CFT-Aa-hMh"/>
                                 </connections>
                             </segmentedControl>
+                            <searchBar contentMode="redraw" id="e2J-Ik-47y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3" id="p0U-dv-bhE"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Recettes" image="second" id="6"/>
                     <navigationItem key="navigationItem" title="Recettes" id="PSo-uM-Vpb"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="g7a-u5-TY3" id="roL-9S-TSG"/>
+                        <outlet property="searchDisplayController" destination="mdT-sQ-FsX" id="dRv-cv-2MX"/>
                         <outlet property="segFilter" destination="Uh3-J0-Rnf" id="dcP-LR-uyH"/>
                         <outlet property="tblRecettes" destination="0ag-ey-VN0" id="HrU-7i-uBV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="g7a-u5-TY3">
+                <searchDisplayController id="mdT-sQ-FsX">
                     <connections>
-                        <outlet property="delegate" destination="3" id="FvB-wO-IZE"/>
-                        <outlet property="searchBar" destination="MZw-Bb-veQ" id="lcD-9X-7C0"/>
-                        <outlet property="searchContentsController" destination="3" id="OXA-RH-6yh"/>
-                        <outlet property="searchResultsDataSource" destination="3" id="gMF-dk-pJE"/>
-                        <outlet property="searchResultsDelegate" destination="3" id="xD1-m0-ocZ"/>
+                        <outlet property="delegate" destination="3" id="j0p-HP-hVl"/>
+                        <outlet property="searchBar" destination="e2J-Ik-47y" id="Gno-Qu-dHy"/>
+                        <outlet property="searchContentsController" destination="3" id="Rgp-oh-PXt"/>
+                        <outlet property="searchResultsDataSource" destination="3" id="lu8-4x-pBH"/>
+                        <outlet property="searchResultsDelegate" destination="3" id="tcq-0q-hwe"/>
                     </connections>
                 </searchDisplayController>
             </objects>

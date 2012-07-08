@@ -105,6 +105,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+    NSIndexPath *tableSelection = [self.tblRecettes indexPathForSelectedRow];
+	[self.tblRecettes deselectRowAtIndexPath:tableSelection animated:NO];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
     [request setEntity:entity];

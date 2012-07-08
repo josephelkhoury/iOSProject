@@ -15,7 +15,7 @@
 
 @implementation RecetteDataController
 @synthesize masterRecetteList = _masterRecetteList;
-@synthesize entrees, plats, desserts;
+@synthesize all, entrees, plats, desserts;
 
 - (void)initializeDefaultDataList 
 {
@@ -55,6 +55,19 @@
 {
     //[self.masterBirdSightingList addObject:sighting];
     [self.masterRecetteList insertObject:recette atIndex:0];
+}
+
+- (NSMutableArray *)getAllRecettes
+{
+    if (!all)
+    {
+        all = [[NSMutableArray alloc] init];
+        for (Recette *recette in self.masterRecetteList)
+        {
+            [all addObject:recette];
+        }
+    }
+    return all;
 }
 
 - (NSMutableArray *)getRecettesFavoris

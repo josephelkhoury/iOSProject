@@ -12,11 +12,13 @@
 
 @end
 
-@implementation RecettesViewController
+@implementation RecettesViewController 
 @synthesize dataController = _dataController;
 @synthesize managedObjectContext;
 @synthesize tblRecettes;
 @synthesize segFilter;
+@synthesize listContent;
+@synthesize filteredListContent;
 
 - (void)viewDidLoad
 {
@@ -34,6 +36,8 @@
     }
     [self.dataController setMasterRecetteList:mutableFetchResults];
     
+    listContent = [self.dataController getAllRecettes];
+    filteredListContent = [[NSMutableArray alloc] init];
     /*Recette *recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:managedObjectContext];
 
     recette.name = @"Titre de la recette";
@@ -46,6 +50,12 @@
     {
         // Handle the error.
     }*/
+}
+
+- (void)viewWillAppear:(BOOL)animated 
+{		
+	NSIndexPath *tableSelection = [self.tblRecettes indexPathForSelectedRow];
+	[self.tblRecettes deselectRowAtIndexPath:tableSelection animated:NO];
 }
 
 - (void)viewDidUnload
@@ -65,17 +75,22 @@
 }
 
 
-- (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
     // Return the number of rows in the section.
-    if(segFilter.selectedSegmentIndex == 0)
-        return [self.dataController countOfList];
-    else if(segFilter.selectedSegmentIndex == 1)
-        return [[self.dataController getEntrees] count];
-    else if(segFilter.selectedSegmentIndex == 2)
-        return [[self.dataController getPlats] count];
-    else if(segFilter.selectedSegmentIndex == 3)
-        return [[self.dataController getDesserts] count];
-    return 0;
+    
+    NSInteger rows = 0;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        rows = [self.filteredListContent count];
+    }
+    else
+    {
+        rows = [self.listContent count];
+    }
+    
+    return rows;
 }
 
 
@@ -83,17 +98,17 @@
 {
 	static NSString *CellIdentifier = @"RecetteCell";
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tblRecettes dequeueReusableCellWithIdentifier:CellIdentifier];
     Recette *recette;
     
-    if(segFilter.selectedSegmentIndex == 0)
-        recette = [self.dataController objectInListAtIndex:indexPath.row];
-    else if(segFilter.selectedSegmentIndex == 1)
-        recette = [[self.dataController getEntrees] objectAtIndex:indexPath.row];
-    else if(segFilter.selectedSegmentIndex == 2)
-        recette = [[self.dataController getPlats] objectAtIndex:indexPath.row];
-    else if(segFilter.selectedSegmentIndex == 3)
-        recette = [[self.dataController getDesserts] objectAtIndex:indexPath.row];
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        recette = [self.filteredListContent objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        recette = [self.listContent objectAtIndex:indexPath.row];
+    }
     
     [[cell textLabel] setText:recette.name];
     [[cell detailTextLabel] setText:recette.category];
@@ -114,19 +129,53 @@
     {
         RecetteViewController *detailViewController = [segue destinationViewController];
         
-        if(segFilter.selectedSegmentIndex == 0)
-            detailViewController.recette = [self.dataController objectInListAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
-        else if(segFilter.selectedSegmentIndex == 1)
-            detailViewController.recette = [[self.dataController getEntrees] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
-        else if(segFilter.selectedSegmentIndex == 2)
-            detailViewController.recette = [[self.dataController getPlats] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
-        else if(segFilter.selectedSegmentIndex == 3)
-            detailViewController.recette = [[self.dataController getDesserts] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        detailViewController.recette = [self.listContent objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
         
         detailViewController.managedObjectContext = self.managedObjectContext;
     }
 }
 
+- (void)filterContentForSearchText:(NSString*)searchText 
+                             scope:(NSString*)scope
+{
+    [self.filteredListContent removeAllObjects];	
+
+	for (Recette *recette in listContent)
+	{
+		//if ([scope isEqualToString:@"Toutes"] || [recette.category isEqualToString:scope])
+		//{
+			NSComparisonResult nameResult = [recette.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+
+            if (nameResult == NSOrderedSame)
+			{
+				[self.filteredListContent addObject:recette];
+            }
+		//}
+	}
+
+}
+
+#pragma mark - UISearchDisplayController delegate methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller 
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString 
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller 
+shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] 
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:searchOption]];
+    
+    return YES;
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -135,6 +184,14 @@
 
 - (IBAction)didFilter:(id)sender
 {
+    if(segFilter.selectedSegmentIndex == 0)
+        listContent = [self.dataController getAllRecettes];
+    else if(segFilter.selectedSegmentIndex == 1)
+        listContent = [self.dataController getEntrees];
+    else if(segFilter.selectedSegmentIndex == 2)
+        listContent = [self.dataController getPlats];
+    else if(segFilter.selectedSegmentIndex == 3)
+        listContent = [self.dataController getDesserts];
     [tblRecettes reloadData];
 }
 @end
