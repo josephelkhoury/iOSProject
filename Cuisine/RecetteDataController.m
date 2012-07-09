@@ -15,7 +15,7 @@
 
 @implementation RecetteDataController
 @synthesize masterRecetteList = _masterRecetteList;
-@synthesize entrees, plats, desserts;
+@synthesize all, entrees, plats, desserts;
 
 - (void)initializeDefaultDataList 
 {
@@ -57,58 +57,70 @@
     [self.masterRecetteList insertObject:recette atIndex:0];
 }
 
-- (NSMutableArray *)getRecettesFavoris
+- (NSMutableArray *)getRecettes:(RecetteType)type
 {
-    NSMutableArray *favoris = [[NSMutableArray alloc] init];
-    for (Recette *recette in self.masterRecetteList)
+    if (type == ALL)
     {
-        if (recette.favori == [NSNumber numberWithInt:1])
-            [favoris addObject:recette];
+        if (!all)
+        {
+            all = [[NSMutableArray alloc] init];
+            for (Recette *recette in self.masterRecetteList)
+            {
+                [all addObject:recette];
+            }
+        }
+        return all;
     }
-    return favoris;
-}
-
-- (NSMutableArray *)getEntrees
-{
-    if (!entrees)
+    else if (type == ENTREE)
     {
-        entrees = [[NSMutableArray alloc] init];
+        if (!entrees)
+        {
+            entrees = [[NSMutableArray alloc] init];
+            for (Recette *recette in self.masterRecetteList)
+            {
+                if ([recette.category isEqualToString:@"Entrée"])
+                    [entrees addObject:recette];
+            }
+        }
+        return entrees;
+    }
+    else if (type == PLAT)
+    {
+        if (!plats)
+        {
+            plats = [[NSMutableArray alloc] init];
+            for (Recette *recette in self.masterRecetteList)
+            {
+                if ([recette.category isEqualToString:@"Plat"])
+                    [plats addObject:recette];
+            }
+        }
+        return plats;
+    }
+    else if (type == DESSERT)
+    {
+        if (!desserts)
+        {
+            desserts = [[NSMutableArray alloc] init];
+            for (Recette *recette in self.masterRecetteList)
+            {
+                if ([recette.category isEqualToString:@"Dessert"])
+                    [desserts addObject:recette];
+            }
+        }
+        return desserts;
+    }
+    else if (type == FAVORI)
+    {
+        NSMutableArray *favoris = [[NSMutableArray alloc] init];
         for (Recette *recette in self.masterRecetteList)
         {
-            if ([recette.category isEqualToString:@"Entrée"])
-                [entrees addObject:recette];
+            if (recette.favori == [NSNumber numberWithInt:1])
+                [favoris addObject:recette];
         }
+        return favoris;
     }
-    return entrees;
+    return nil;
 }
-
-- (NSMutableArray *)getPlats
-{
-    if (!plats)
-    {
-        plats = [[NSMutableArray alloc] init];
-        for (Recette *recette in self.masterRecetteList)
-        {
-            if ([recette.category isEqualToString:@"Plat"])
-                [plats addObject:recette];
-        }
-    }
-    return plats;
-}
-
-- (NSMutableArray *)getDesserts
-{
-    if (!desserts)
-    {
-        desserts = [[NSMutableArray alloc] init];
-        for (Recette *recette in self.masterRecetteList)
-        {
-            if ([recette.category isEqualToString:@"Dessert"])
-                [desserts addObject:recette];
-        }
-    }
-    return desserts;
-}
-
 
 @end
