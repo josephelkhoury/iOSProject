@@ -47,11 +47,10 @@
     NSString *searchText;
     bool byTitle = YES;
     NSString *difficulty = @"Facile";
+    RecetteType type = ALL;
     
-	for (Recette *recette in [self.dataController getRecettes:ALL])
+	for (Recette *recette in [self.dataController getRecettes:type])
 	{
-		//if ([scope isEqualToString:@"Toutes"] || [recette.category isEqualToString:scope])
-		//{
         NSComparisonResult result;
         if (byTitle)
         {
@@ -66,7 +65,6 @@
         {
             [results addObject:recette];
         }
-		//}
 	}
     
     return results;
