@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecetteDataController.h"
+#import "Recette.h"
 
 @interface RechercheViewController : UITableViewController
+
+@property (strong, nonatomic) RecetteDataController *dataController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+- (IBAction)doRecherche:(id)sender;
 
 @end

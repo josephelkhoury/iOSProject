@@ -152,7 +152,6 @@
             }
 		//}
 	}
-
 }
 
 #pragma mark - UISearchDisplayController delegate methods

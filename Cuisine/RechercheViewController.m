@@ -13,6 +13,8 @@
 @end
 
 @implementation RechercheViewController
+@synthesize dataController = _dataController;
+@synthesize managedObjectContext;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +34,42 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (IBAction)doRecherche:(id)sender
+{
+    [self rechercher];
+}
+
+- (NSMutableArray *)rechercher
+{
+    NSMutableArray *results = [[NSMutableArray alloc] init];
+    NSString *searchText;
+    bool byTitle = YES;
+    NSString *difficulty = @"Facile";
+    
+	for (Recette *recette in [self.dataController getRecettes:ALL])
+	{
+		//if ([scope isEqualToString:@"Toutes"] || [recette.category isEqualToString:scope])
+		//{
+        NSComparisonResult result;
+        if (byTitle)
+        {
+            result = [recette.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        }
+        else
+        {
+            result = [recette.ingredients compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        }
+        
+        if (result == NSOrderedSame && [recette.difficulty isEqualToString:difficulty])
+        {
+            [results addObject:recette];
+        }
+		//}
+	}
+    
+    return results;
 }
 
 - (void)viewDidUnload
