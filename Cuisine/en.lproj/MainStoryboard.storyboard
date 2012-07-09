@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Acceuil-->
+        <!--Navigation Controller - Accueil-->
         <scene sceneID="01z-I5-fAv">
             <objects>
                 <navigationController definesPresentationContext="YES" id="2MS-cv-ZeL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Acceuil" id="Cg8-qr-Iai"/>
+                    <tabBarItem key="tabBarItem" title="Accueil" image="accueil.png" id="Cg8-qr-Iai"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="bpG-mc-dVn">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -29,42 +29,53 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Rechercher une recette" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="20">
-                                <rect key="frame" x="0.0" y="12" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" id="HBR-r9-OHc">
+                                <rect key="frame" x="30" y="61" width="260" height="291"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Titre de la recette" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" id="AZf-CF-Emh">
+                                        <rect key="frame" x="54" y="250" width="152" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <searchBar contentMode="redraw" id="pYo-ro-EzB">
-                                <rect key="frame" x="0.0" y="42" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Rechercher une recette" lineBreakMode="tailTruncation" minimumFontSize="10" id="20">
+                                <rect key="frame" x="40" y="7" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="title.png" id="5oZ-Zh-hif">
+                                <rect key="frame" x="22" y="67" width="199" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="QZE-hX-Gu3">
-                                <rect key="frame" x="40" y="154" width="240" height="128"/>
+                                <rect key="frame" x="40" y="122" width="240" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Top 10 des recettes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="L0W-4o-5DI">
-                                <rect key="frame" x="84" y="125" width="152" height="21"/>
+                                <rect key="frame" x="40" y="62" width="166" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Titre de la recette" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="AZf-CF-Emh">
-                                <rect key="frame" x="84" y="290" width="152" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="31"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Acceuil" image="first" id="7"/>
-                    <navigationItem key="navigationItem" title="Titre" id="Dni-6y-V7p"/>
+                    <navigationItem key="navigationItem" title="Partage de Saveurs" id="Dni-6y-V7p"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +85,7 @@
         <scene sceneID="RRD-IB-U04">
             <objects>
                 <navigationController definesPresentationContext="YES" id="M4j-Ua-nFU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mes Favoris" id="NGH-hx-oBz"/>
+                    <tabBarItem key="tabBarItem" title="Mes Favoris" image="star.png" id="NGH-hx-oBz"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Nvk-d1-k0b">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -152,7 +163,7 @@
         <scene sceneID="Xqi-l2-2Si">
             <objects>
                 <navigationController definesPresentationContext="YES" id="rG2-8r-SdD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top 10" id="Rh2-tC-wYf"/>
+                    <tabBarItem key="tabBarItem" title="Top 10" image="top.png" id="Rh2-tC-wYf"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="QcA-na-Ifb">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -185,7 +196,7 @@
         <scene sceneID="b2X-U5-npP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="z0W-kh-CJK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Recettes" id="2om-uk-3fb"/>
+                    <tabBarItem key="tabBarItem" title="Recettes" image="recette.png" id="2om-uk-3fb"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gvF-wP-ZWR">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -355,8 +366,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="accueil.png" width="30" height="30"/>
         <image name="first" width="16" height="16"/>
+        <image name="recette.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
+        <image name="star.png" width="30" height="30"/>
+        <image name="title.png" width="231" height="41"/>
+        <image name="top.png" width="30" height="30"/>
     </resources>
     <classes>
         <class className="AcceuilViewController" superclassName="UIViewController">

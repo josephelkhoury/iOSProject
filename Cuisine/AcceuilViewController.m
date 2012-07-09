@@ -19,10 +19,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    UIImage *patternImage = [UIImage imageNamed:@"bg.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
-- (void)viewDidUnload
+- (void)viewDidUnloads
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
