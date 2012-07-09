@@ -36,7 +36,7 @@
     }
     [self.dataController setMasterRecetteList:mutableFetchResults];
     
-    listContent = [self.dataController getAllRecettes];
+    listContent = [self.dataController getRecettes:ALL];
     filteredListContent = [[NSMutableArray alloc] init];
     /*Recette *recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:managedObjectContext];
 
@@ -135,8 +135,8 @@
     }
 }
 
-- (void)filterContentForSearchText:(NSString*)searchText 
-                             scope:(NSString*)scope
+- (void)filterContentForSearchText:(NSString *)searchText 
+                             scope:(NSString *)scope
 {
     [self.filteredListContent removeAllObjects];	
 
@@ -185,13 +185,13 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
 - (IBAction)didFilter:(id)sender
 {
     if(segFilter.selectedSegmentIndex == 0)
-        listContent = [self.dataController getAllRecettes];
+        listContent = [self.dataController getRecettes:ALL];
     else if(segFilter.selectedSegmentIndex == 1)
-        listContent = [self.dataController getEntrees];
+        listContent = [self.dataController getRecettes:ENTREE];
     else if(segFilter.selectedSegmentIndex == 2)
-        listContent = [self.dataController getPlats];
+        listContent = [self.dataController getRecettes:PLAT];
     else if(segFilter.selectedSegmentIndex == 3)
-        listContent = [self.dataController getDesserts];
+        listContent = [self.dataController getRecettes:DESSERT];
     [tblRecettes reloadData];
 }
 @end

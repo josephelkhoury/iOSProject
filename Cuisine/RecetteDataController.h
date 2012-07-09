@@ -10,6 +10,15 @@
 
 @class Recette;
 
+typedef enum 
+{
+    ALL,
+    ENTREE,
+    PLAT,
+    DESSERT,
+    FAVORI,
+} RecetteType;
+
 @interface RecetteDataController : NSObject
 {
     NSMutableArray *all;
@@ -27,10 +36,6 @@
 - (NSUInteger)countOfList;
 - (Recette *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addRecette:(Recette *)recette;
-- (NSMutableArray *)getRecettesFavoris;
-- (NSMutableArray *)getAllRecettes;
-- (NSMutableArray *)getEntrees;
-- (NSMutableArray *)getPlats;
-- (NSMutableArray *)getDesserts;
+- (NSMutableArray *)getRecettes:(RecetteType)type;
 
 @end

@@ -50,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-	return [[self.dataController getRecettesFavoris] count];
+	return [[self.dataController getRecettes:FAVORI] count];
 }
 
 
@@ -59,7 +59,7 @@
 	static NSString *CellIdentifier = @"RecetteCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    Recette *recette = [[self.dataController getRecettesFavoris] objectAtIndex:indexPath.row];
+    Recette *recette = [[self.dataController getRecettes:FAVORI] objectAtIndex:indexPath.row];
     [[cell textLabel] setText:recette.name];
     [[cell detailTextLabel] setText:recette.category];
     
@@ -83,7 +83,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) 
     {
-        Recette *recette = [[self.dataController getRecettesFavoris] objectAtIndex:indexPath.row];
+        Recette *recette = [[self.dataController getRecettes:FAVORI] objectAtIndex:indexPath.row];
         recette.favori = [NSNumber numberWithInt:0];
         NSError *error;
         [self.managedObjectContext save:&error];
@@ -97,7 +97,7 @@
     if ([[segue identifier] isEqualToString:@"ShowRecetteDetails"]) 
     {
         RecetteViewController *detailViewController = [segue destinationViewController];
-        detailViewController.recette = [[self.dataController getRecettesFavoris] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
+        detailViewController.recette = [[self.dataController getRecettes:FAVORI] objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
         detailViewController.managedObjectContext = self.managedObjectContext;
     }
 }
