@@ -116,20 +116,23 @@
     else if ([lblCategory.text isEqualToString:@"Dessert"])
         type = DESSERT;
     
-	for (Recette *recette in [self.dataController getRecettes:type])
-	{
-        recette.ingredients = @"Salade, Tomate, Onion";
-        if (([recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound))
+    if (searchText != nil)
+    {
+        for (Recette *recette in [self.dataController getRecettes:type])
         {
-            if ([lblDifficulty.text isEqualToString:@"Indifférent"] || [lblDifficulty.text isEqualToString:recette.difficulty])
+            recette.ingredients = @"Salade, Tomate, Onion";
+            if (([recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound))
             {
-                if ([lblOrigin.text isEqualToString:@"Toutes"])
-                    [results addObject:recette];
-                else if ([recette.origin isEqualToString:lblOrigin.text])
-                    [results addObject:recette];
+                if ([lblDifficulty.text isEqualToString:@"Indifférent"] || [lblDifficulty.text isEqualToString:recette.difficulty])
+                {
+                    if ([lblOrigin.text isEqualToString:@"Toutes"])
+                        [results addObject:recette];
+                    else if ([recette.origin isEqualToString:lblOrigin.text])
+                        [results addObject:recette];
+                }
             }
         }
-	}
+    }
     
     return results;
 }
