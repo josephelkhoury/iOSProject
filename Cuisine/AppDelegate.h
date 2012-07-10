@@ -11,6 +11,7 @@
 #import "RecettesViewController.h"
 #import "FavorisViewController.h"
 #import "RecetteDataController.h"
+#import "RechercheViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

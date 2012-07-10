@@ -15,20 +15,58 @@
 @implementation RechercheViewController
 @synthesize dataController = _dataController;
 @synthesize managedObjectContext;
+@synthesize picker;
+@synthesize slider;
+@synthesize lblCategory;
+@synthesize lblOrigin;
+@synthesize lblDifficulty;
+@synthesize btnCategory;
+@synthesize btnOrigin;
+@synthesize searchBar;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResults == nil) 
+    {
+        // Handle the error.
+    }
+    [self.dataController setMasterRecetteList:mutableFetchResults];
+    
+    categoryArray = [[NSMutableArray alloc] init];
+    [categoryArray addObject:@"Toutes"];
+    [categoryArray addObject:@"Entrée"];
+    [categoryArray addObject:@"Plat"];
+    [categoryArray addObject:@"Dessert"];
+    
+    originArray = [[NSMutableArray alloc] init];
+    [originArray addObject:@"Toutes"];
+    [originArray addObject:@"France"];
+    [originArray addObject:@"Autre"];
+    
+    difficultyArray = [[NSMutableArray alloc] init];
+    [difficultyArray addObject:@"Indifférent"];
+    [difficultyArray addObject:@"Facile"];
+    [difficultyArray addObject:@"Moyen"];
+    [difficultyArray addObject:@"Difficile"];
+    [difficultyArray addObject:@"Expert"];
+    
+    for (UIView *searchBarSubview in [searchBar subviews])
+    {
+        if ([searchBarSubview conformsToProtocol:@protocol(UITextInputTraits)]) 
+        {
+            [(UITextField *)searchBarSubview setDelegate:self];
+            [(UITextField *)searchBarSubview setReturnKeyType:UIReturnKeyDone];
+            [(UITextField *)searchBarSubview setKeyboardAppearance:UIKeyboardAppearanceDefault];
+        }  
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -36,42 +74,116 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{    
+    [textField resignFirstResponder];
+    return YES;
+}
+
 - (IBAction)doRecherche:(id)sender
 {
     [self rechercher];
 }
 
+- (IBAction)chooseCategory:(id)sender
+{
+    picker.hidden = NO;
+    pickingCategory = YES;
+    pickingOrigin = NO;
+    [picker reloadAllComponents];
+}
+
+- (IBAction)chooseOrigin:(id)sender
+{
+    picker.hidden = NO;
+    pickingCategory = NO;
+    pickingOrigin = YES;
+    [picker reloadAllComponents];
+}
+
 - (NSMutableArray *)rechercher
 {
     NSMutableArray *results = [[NSMutableArray alloc] init];
-    NSString *searchText;
-    bool byTitle = YES;
-    NSString *difficulty = @"Facile";
-    RecetteType type = ALL;
+    NSString *searchText = searchBar.text;
+    RecetteType type;
+    
+    if ([lblCategory.text isEqualToString:@"Toutes"])
+        type = ALL;
+    else if ([lblCategory.text isEqualToString:@"Entrée"])
+        type = ENTREE;
+    else if ([lblCategory.text isEqualToString:@"Plat"])
+        type = PLAT;
+    else if ([lblCategory.text isEqualToString:@"Dessert"])
+        type = DESSERT;
     
 	for (Recette *recette in [self.dataController getRecettes:type])
 	{
-        NSComparisonResult result;
-        if (byTitle)
+        recette.ingredients = @"Salade, Tomate, Onion";
+        if (([recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound))
         {
-            result = [recette.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-        }
-        else
-        {
-            result = [recette.ingredients compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
-        }
-        
-        if (result == NSOrderedSame && [recette.difficulty isEqualToString:difficulty])
-        {
-            [results addObject:recette];
+            if ([lblDifficulty.text isEqualToString:@"Indifférent"] || [lblDifficulty.text isEqualToString:recette.difficulty])
+            {
+                if ([lblOrigin.text isEqualToString:@"Toutes"])
+                    [results addObject:recette];
+                else if ([recette.origin isEqualToString:lblOrigin.text])
+                    [results addObject:recette];
+            }
         }
 	}
     
     return results;
 }
 
+- (IBAction)valueChanged:(UISlider*)sender
+{
+    NSUInteger index = (NSUInteger)(slider.value + 0.5);
+    [slider setValue:index animated:NO];
+    lblDifficulty.text = [difficultyArray objectAtIndex:index]; 
+}
+                
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+{
+    return 1;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if (pickingCategory)
+        lblCategory.text = [categoryArray objectAtIndex:row];
+    if (pickingOrigin)
+        lblOrigin.text = [originArray objectAtIndex:row];
+    picker.hidden = YES;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+{
+    if (pickingCategory)
+        return [categoryArray count];
+    if (pickingOrigin)
+        return [originArray count];
+    return 0;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+{
+    if (pickingCategory)
+        return [categoryArray objectAtIndex:row];
+    if (pickingOrigin)
+        return [originArray objectAtIndex:row];
+    return @"";
+}
+
 - (void)viewDidUnload
 {
+    [self setPicker:nil];
+    [self setLblCategory:nil];
+    [self setLblOrigin:nil];
+    [self setBtnCategory:nil];
+    [self setBtnOrigin:nil];
+    [self setSlider:nil];
+    [self setLblDifficulty:nil];
+    [self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -80,84 +192,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end
