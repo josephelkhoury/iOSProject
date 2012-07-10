@@ -29,6 +29,8 @@
     
     RecettesViewController *recettesViewController = (RecettesViewController *)[[[[tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
     
+    RechercheViewController *rechercheViewController = (RechercheViewController *)[[[[tabBarController viewControllers] objectAtIndex:2] viewControllers] objectAtIndex:0];
+    
     FavorisViewController *favorisViewController = (FavorisViewController *)[[[[tabBarController viewControllers] objectAtIndex:4] viewControllers] objectAtIndex:0];
 
     RecetteDataController *aDataController = [[RecetteDataController alloc] init];
@@ -38,6 +40,8 @@
     recettesViewController.managedObjectContext = context;
     favorisViewController.dataController = aDataController;
     favorisViewController.managedObjectContext = context;
+    rechercheViewController.dataController = aDataController;
+    rechercheViewController.managedObjectContext = context;
     
     return YES;
 }
