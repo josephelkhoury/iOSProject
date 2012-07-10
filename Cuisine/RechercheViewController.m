@@ -80,9 +80,15 @@
     return YES;
 }
 
-- (IBAction)doRecherche:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self rechercher];
+    if ([[segue identifier] isEqualToString:@"showResult"]) 
+    {
+        ResultViewController *resultViewController = [segue destinationViewController];
+        resultViewController.dataController = self.dataController;
+        resultViewController.managedObjectContext = self.managedObjectContext;
+        resultViewController.results = [self rechercher];
+    }
 }
 
 - (IBAction)chooseCategory:(id)sender
@@ -133,7 +139,6 @@
             }
         }
     }
-    
     return results;
 }
 

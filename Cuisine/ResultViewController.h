@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Recette.h"
+#import "RecetteViewController.h"
+#import "RecetteDataController.h"
 
-@interface ResultViewController : UITableViewController
+@interface ResultViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray *results;
 }
+
+@property (strong, nonatomic) RecetteDataController *dataController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSMutableArray *results;
 
 @end

@@ -220,7 +220,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="doRecherche:" destination="ttM-XC-DFW" eventType="touchUpInside" id="C2o-Gb-hBH"/>
+                                    <segue destination="TV5-xj-g4h" kind="push" identifier="showResult" id="cZo-x0-Pc0"/>
                                 </connections>
                             </button>
                             <pickerView hidden="YES" contentMode="scaleToFill" id="HLV-jd-W8X">
@@ -307,11 +307,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tE9-AR-MeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="TV5-xj-g4h" customClass="ResultViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="z3R-9g-JBe">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xNX-S5-Q5t" detailTextLabel="EUH-tO-8TK" style="IBUITableViewCellStyleValue1" id="qlf-IX-83s">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecetteCell" textLabel="xNX-S5-Q5t" detailTextLabel="EUH-tO-8TK" style="IBUITableViewCellStyleValue1" id="qlf-IX-83s">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -335,6 +335,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="8MX-kv-8FV" kind="push" identifier="ShowRecetteDetails" id="Etu-iT-q23"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -342,6 +345,7 @@
                             <outlet property="delegate" destination="TV5-xj-g4h" id="K5A-GB-3T0"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="0RG-b5-pMB"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1528" y="2276"/>
@@ -560,63 +564,12 @@
         <image name="first" width="16" height="16"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="AcceuilViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AcceuilViewController.h"/>
-        </class>
-        <class className="FavorisViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavorisViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tblRecettes" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="RecetteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecetteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="editFavori:"/>
-                <relationship kind="outlet" name="btnFavoris" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="lblCategory" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblName" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="RecettesViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecettesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didFilter:"/>
-                <relationship kind="outlet" name="segFilter" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="tblRecettes" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="RechercheViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RechercheViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="chooseCategory:"/>
-                <relationship kind="action" name="chooseOrigin:"/>
-                <relationship kind="action" name="doRecherche:"/>
-                <relationship kind="action" name="valueChanged:" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="btnCategory" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="btnOrigin" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="lblCategory" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblDifficulty" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lblOrigin" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-        <class className="ResultViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ResultViewController.h"/>
-        </class>
-        <class className="Top10ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top10ViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hql-eG-t8j"/>
+        <segue reference="Etu-iT-q23"/>
     </inferredMetricsTieBreakers>
 </document>

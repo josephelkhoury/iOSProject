@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RecetteDataController.h"
 #import "Recette.h"
+#import "ResultViewController.h"
 
 @interface RechercheViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 {
@@ -30,7 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnOrigin;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-- (IBAction)doRecherche:(id)sender;
 - (IBAction)chooseCategory:(id)sender;
 - (IBAction)chooseOrigin:(id)sender;
 - (IBAction)valueChanged:(UISlider*)sender;

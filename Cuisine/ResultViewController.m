@@ -13,6 +13,9 @@
 @end
 
 @implementation ResultViewController
+@synthesize dataController = _dataController;
+@synthesize managedObjectContext;
+@synthesize results;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -62,12 +65,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"RecetteCell";
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    Recette *recette;
+    
+    recette = [self.results objectAtIndex:indexPath.row];
+    
+    [[cell textLabel] setText:recette.name];
+    [[cell detailTextLabel] setText:recette.category];
     
     return cell;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowRecetteDetails"]) 
+    {
+        RecetteViewController *detailViewController = [segue destinationViewController];
+        detailViewController.recette = [self.results objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        detailViewController.managedObjectContext = self.managedObjectContext;
+    }
 }
 
 /*
