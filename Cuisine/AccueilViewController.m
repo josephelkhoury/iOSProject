@@ -6,20 +6,20 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AcceuilViewController.h"
+#import "AccueilViewController.h"
 
-@interface AcceuilViewController ()
+@interface AccueilViewController ()
 
 @end
 
-@implementation AcceuilViewController
+@implementation AccueilViewController
 @synthesize dataController = _dataController;
 @synthesize managedObjectContext;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *patternImage = [UIImage imageNamed:@"bg.png"];
+    UIImage *patternImage = [UIImage imageNamed:@"vichy.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 

@@ -25,7 +25,7 @@
     }
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
 
-    AcceuilViewController *acceuilViewController = (AcceuilViewController *)[[[[tabBarController viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
+    AccueilViewController *accueilViewController = (AccueilViewController *)[[[[tabBarController viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
     
     RecettesViewController *recettesViewController = (RecettesViewController *)[[[[tabBarController viewControllers] objectAtIndex:1] viewControllers] objectAtIndex:0];
     
@@ -34,8 +34,8 @@
     FavorisViewController *favorisViewController = (FavorisViewController *)[[[[tabBarController viewControllers] objectAtIndex:4] viewControllers] objectAtIndex:0];
 
     RecetteDataController *aDataController = [[RecetteDataController alloc] init];
-    acceuilViewController.dataController = aDataController;
-    acceuilViewController.managedObjectContext = context;
+    accueilViewController.dataController = aDataController;
+    accueilViewController.managedObjectContext = context;
     recettesViewController.dataController = aDataController;
     recettesViewController.managedObjectContext = context;
     favorisViewController.dataController = aDataController;

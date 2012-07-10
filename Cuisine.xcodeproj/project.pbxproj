@@ -20,15 +20,21 @@
 		6EC541DC15908707000AE4E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541DB15908707000AE4E9 /* main.m */; };
 		6EC541E015908707000AE4E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541DF15908707000AE4E9 /* AppDelegate.m */; };
 		6EC541E315908707000AE4E9 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */; };
-		6EC541E615908707000AE4E9 /* AcceuilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541E515908707000AE4E9 /* AcceuilViewController.m */; };
+		6EC541E615908707000AE4E9 /* AccueilViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541E515908707000AE4E9 /* AccueilViewController.m */; };
 		6EC541E815908707000AE4E9 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541E715908707000AE4E9 /* first.png */; };
 		6EC541EA15908707000AE4E9 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541E915908707000AE4E9 /* first@2x.png */; };
 		6EC541ED15908707000AE4E9 /* RecettesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541EC15908707000AE4E9 /* RecettesViewController.m */; };
-		6EC541EF15908707000AE4E9 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541EE15908707000AE4E9 /* second.png */; };
 		6EC541F115908707000AE4E9 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EC541F015908707000AE4E9 /* second@2x.png */; };
 		6EC541F9159092A2000AE4E9 /* Top10ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541F8159092A2000AE4E9 /* Top10ViewController.m */; };
 		6EC541FC1590960A000AE4E9 /* RecetteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541FB1590960A000AE4E9 /* RecetteViewController.m */; };
 		6EC541FF159097B4000AE4E9 /* FavorisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC541FE159097B4000AE4E9 /* FavorisViewController.m */; };
+		CEB84C7415ACEA3B00FD21EF /* accueil.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C7315ACEA3B00FD21EF /* accueil.png */; };
+		CEB84C7615ACEA5500FD21EF /* recette.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C7515ACEA5500FD21EF /* recette.png */; };
+		CEB84C7815ACEA7000FD21EF /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C7715ACEA7000FD21EF /* title.png */; };
+		CEB84C7B15ACEA9500FD21EF /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C7915ACEA9500FD21EF /* star.png */; };
+		CEB84C7C15ACEA9500FD21EF /* top.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C7A15ACEA9500FD21EF /* top.png */; };
+		CEB84C8015ACEBD100FD21EF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C7F15ACEBD100FD21EF /* second@2x.png */; };
+		CEB84C8215ACEC1600FD21EF /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB84C8115ACEC1600FD21EF /* second.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,13 +59,12 @@
 		6EC541DE15908707000AE4E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6EC541DF15908707000AE4E9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6EC541E215908707000AE4E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		6EC541E415908707000AE4E9 /* AcceuilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AcceuilViewController.h; sourceTree = "<group>"; };
-		6EC541E515908707000AE4E9 /* AcceuilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AcceuilViewController.m; sourceTree = "<group>"; };
+		6EC541E415908707000AE4E9 /* AccueilViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AccueilViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		6EC541E515908707000AE4E9 /* AccueilViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AccueilViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6EC541E715908707000AE4E9 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		6EC541E915908707000AE4E9 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		6EC541EB15908707000AE4E9 /* RecettesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecettesViewController.h; sourceTree = "<group>"; };
 		6EC541EC15908707000AE4E9 /* RecettesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecettesViewController.m; sourceTree = "<group>"; };
-		6EC541EE15908707000AE4E9 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		6EC541F015908707000AE4E9 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		6EC541F7159092A1000AE4E9 /* Top10ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top10ViewController.h; sourceTree = "<group>"; };
 		6EC541F8159092A2000AE4E9 /* Top10ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top10ViewController.m; sourceTree = "<group>"; };
@@ -67,6 +72,13 @@
 		6EC541FB1590960A000AE4E9 /* RecetteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecetteViewController.m; sourceTree = "<group>"; };
 		6EC541FD159097B4000AE4E9 /* FavorisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavorisViewController.h; sourceTree = "<group>"; };
 		6EC541FE159097B4000AE4E9 /* FavorisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavorisViewController.m; sourceTree = "<group>"; };
+		CEB84C7315ACEA3B00FD21EF /* accueil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accueil.png; sourceTree = "<group>"; };
+		CEB84C7515ACEA5500FD21EF /* recette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recette.png; sourceTree = "<group>"; };
+		CEB84C7715ACEA7000FD21EF /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		CEB84C7915ACEA9500FD21EF /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		CEB84C7A15ACEA9500FD21EF /* top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top.png; sourceTree = "<group>"; };
+		CEB84C7F15ACEBD100FD21EF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		CEB84C8115ACEC1600FD21EF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = second.png; path = ../../../.Trash/second.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,32 +127,38 @@
 		6EC541D515908707000AE4E9 /* Cuisine */ = {
 			isa = PBXGroup;
 			children = (
+				6EC541E415908707000AE4E9 /* AccueilViewController.h */,
 				6EC541DE15908707000AE4E9 /* AppDelegate.h */,
-				6EC541DF15908707000AE4E9 /* AppDelegate.m */,
-				6E2CF6C515A33234009CD18C /* RecetteDataController.h */,
-				6E2CF6C615A33234009CD18C /* RecetteDataController.m */,
-				6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */,
-				6EC541E415908707000AE4E9 /* AcceuilViewController.h */,
-				6EC541E515908707000AE4E9 /* AcceuilViewController.m */,
-				6EC541E715908707000AE4E9 /* first.png */,
-				6EC541E915908707000AE4E9 /* first@2x.png */,
-				6EC541EB15908707000AE4E9 /* RecettesViewController.h */,
-				6EC541EC15908707000AE4E9 /* RecettesViewController.m */,
-				6EC541EE15908707000AE4E9 /* second.png */,
-				6EC541F015908707000AE4E9 /* second@2x.png */,
-				6EC541F7159092A1000AE4E9 /* Top10ViewController.h */,
-				6EC541F8159092A2000AE4E9 /* Top10ViewController.m */,
-				6EC541FA1590960A000AE4E9 /* RecetteViewController.h */,
-				6EC541FB1590960A000AE4E9 /* RecetteViewController.m */,
 				6EC541FD159097B4000AE4E9 /* FavorisViewController.h */,
-				6EC541FE159097B4000AE4E9 /* FavorisViewController.m */,
-				6E7AD1E015AB500F00214038 /* RechercheViewController.h */,
-				6E7AD1E115AB500F00214038 /* RechercheViewController.m */,
-				6E74E7EF15ACA58F00B0404F /* ResultViewController.h */,
-				6E74E7F015ACA58F00B0404F /* ResultViewController.m */,
-				6E4E9BC9159B42830021676C /* Model.xcdatamodeld */,
 				6E6D388A15A5A37200944FC9 /* Recette.h */,
+				6E2CF6C515A33234009CD18C /* RecetteDataController.h */,
+				6EC541EB15908707000AE4E9 /* RecettesViewController.h */,
+				6EC541FA1590960A000AE4E9 /* RecetteViewController.h */,
+				6E7AD1E015AB500F00214038 /* RechercheViewController.h */,
+				6E74E7EF15ACA58F00B0404F /* ResultViewController.h */,
+				6EC541F7159092A1000AE4E9 /* Top10ViewController.h */,
+				6EC541E515908707000AE4E9 /* AccueilViewController.m */,
+				6EC541DF15908707000AE4E9 /* AppDelegate.m */,
+				6EC541FE159097B4000AE4E9 /* FavorisViewController.m */,
 				6E6D388B15A5A37200944FC9 /* Recette.m */,
+				6E2CF6C615A33234009CD18C /* RecetteDataController.m */,
+				6EC541EC15908707000AE4E9 /* RecettesViewController.m */,
+				6EC541FB1590960A000AE4E9 /* RecetteViewController.m */,
+				6E7AD1E115AB500F00214038 /* RechercheViewController.m */,
+				6E74E7F015ACA58F00B0404F /* ResultViewController.m */,
+				6EC541F8159092A2000AE4E9 /* Top10ViewController.m */,
+				CEB84C7315ACEA3B00FD21EF /* accueil.png */,
+				6EC541E715908707000AE4E9 /* first.png */,
+				CEB84C7915ACEA9500FD21EF /* star.png */,
+				CEB84C7A15ACEA9500FD21EF /* top.png */,
+				CEB84C7515ACEA5500FD21EF /* recette.png */,
+				CEB84C7715ACEA7000FD21EF /* title.png */,
+				6EC541E915908707000AE4E9 /* first@2x.png */,
+				CEB84C8115ACEC1600FD21EF /* second.png */,
+				CEB84C7F15ACEBD100FD21EF /* second@2x.png */,
+				6EC541F015908707000AE4E9 /* second@2x.png */,
+				6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */,
+				6E4E9BC9159B42830021676C /* Model.xcdatamodeld */,
 				6EC541D615908707000AE4E9 /* Supporting Files */,
 			);
 			path = Cuisine;
@@ -211,8 +229,14 @@
 				6EC541E315908707000AE4E9 /* MainStoryboard.storyboard in Resources */,
 				6EC541E815908707000AE4E9 /* first.png in Resources */,
 				6EC541EA15908707000AE4E9 /* first@2x.png in Resources */,
-				6EC541EF15908707000AE4E9 /* second.png in Resources */,
 				6EC541F115908707000AE4E9 /* second@2x.png in Resources */,
+				CEB84C7415ACEA3B00FD21EF /* accueil.png in Resources */,
+				CEB84C7615ACEA5500FD21EF /* recette.png in Resources */,
+				CEB84C7815ACEA7000FD21EF /* title.png in Resources */,
+				CEB84C7B15ACEA9500FD21EF /* star.png in Resources */,
+				CEB84C7C15ACEA9500FD21EF /* top.png in Resources */,
+				CEB84C8015ACEBD100FD21EF /* second@2x.png in Resources */,
+				CEB84C8215ACEC1600FD21EF /* second.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +249,7 @@
 			files = (
 				6EC541DC15908707000AE4E9 /* main.m in Sources */,
 				6EC541E015908707000AE4E9 /* AppDelegate.m in Sources */,
-				6EC541E615908707000AE4E9 /* AcceuilViewController.m in Sources */,
+				6EC541E615908707000AE4E9 /* AccueilViewController.m in Sources */,
 				6EC541ED15908707000AE4E9 /* RecettesViewController.m in Sources */,
 				6EC541F9159092A2000AE4E9 /* Top10ViewController.m in Sources */,
 				6EC541FC1590960A000AE4E9 /* RecetteViewController.m in Sources */,
