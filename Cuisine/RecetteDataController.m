@@ -120,6 +120,28 @@
         }
         return favoris;
     }
+    else if (type == TOPTEN)
+    {
+        NSMutableArray *topten = [[NSMutableArray alloc] init];
+        topten = self.masterRecetteList;
+        
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"rating"
+                                                      ascending:NO];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [topten sortedArrayUsingDescriptors:sortDescriptors];
+        int count = 0;
+        [topten removeAllObjects];
+        for (Recette *rec in sortedArray)
+        {
+            if (count < 10)
+            {
+                [topten addObject:rec];
+                count++;
+            }
+        }
+        return topten;
+    }
     return nil;
 }
 

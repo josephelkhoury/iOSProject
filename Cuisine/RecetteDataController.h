@@ -17,6 +17,7 @@ typedef enum
     PLAT,
     DESSERT,
     FAVORI,
+    TOPTEN,
 } RecetteType;
 
 @interface RecetteDataController : NSObject

@@ -23,6 +23,19 @@
     {
         // Handle the error.
     }
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:context];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
+    if (mutableFetchResults == nil) 
+    {
+        // Handle the error.
+    }
+    self.dataController = [[RecetteDataController alloc] init];
+    [self.dataController setMasterRecetteList:mutableFetchResults];
+    
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
 
     AccueilViewController *accueilViewController = (AccueilViewController *)[[[[tabBarController viewControllers] objectAtIndex:0] viewControllers] objectAtIndex:0];
@@ -31,17 +44,21 @@
     
     RechercheViewController *rechercheViewController = (RechercheViewController *)[[[[tabBarController viewControllers] objectAtIndex:2] viewControllers] objectAtIndex:0];
     
+    Top10ViewController *top10ViewController = (Top10ViewController *)[[[[tabBarController viewControllers] objectAtIndex:3] viewControllers] objectAtIndex:0];
+    
     FavorisViewController *favorisViewController = (FavorisViewController *)[[[[tabBarController viewControllers] objectAtIndex:4] viewControllers] objectAtIndex:0];
 
-    RecetteDataController *aDataController = [[RecetteDataController alloc] init];
+    RecetteDataController *aDataController = self.dataController;
     accueilViewController.dataController = aDataController;
-    accueilViewController.managedObjectContext = context;
+    //accueilViewController.managedObjectContext = context;
     recettesViewController.dataController = aDataController;
     recettesViewController.managedObjectContext = context;
     favorisViewController.dataController = aDataController;
     favorisViewController.managedObjectContext = context;
     rechercheViewController.dataController = aDataController;
-    rechercheViewController.managedObjectContext = context;
+    //rechercheViewController.managedObjectContext = context;
+    top10ViewController.dataController = aDataController;
+    //top10ViewController.managedObjectContext = context;
     
     return YES;
 }
@@ -125,7 +142,7 @@
         return __persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ModeleRecettes.momd"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ModeleNouveau.momd"];
     
     NSError *error = nil;
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

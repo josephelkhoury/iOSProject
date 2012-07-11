@@ -32,7 +32,7 @@
     UIImage *patternImage = [UIImage imageNamed:@"vichy.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    /*NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
     [request setEntity:entity];
     
@@ -42,7 +42,7 @@
     {
         // Handle the error.
     }
-    [self.dataController setMasterRecetteList:mutableFetchResults];
+    [self.dataController setMasterRecetteList:mutableFetchResults];*/
     
     searchBar.tintColor = UIColorFromRGB(0xCF423C);
     
@@ -81,6 +81,11 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [searchBar resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

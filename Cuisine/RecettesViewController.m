@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    /*NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
     [request setEntity:entity];
     
@@ -35,13 +35,14 @@
     {
         // Handle the error.
     }
-    [self.dataController setMasterRecetteList:mutableFetchResults];
+    [self.dataController setMasterRecetteList:mutableFetchResults];*/
     
     listContent = [self.dataController getRecettes:ALL];
     filteredListContent = [[NSMutableArray alloc] init];
     
     segFilter.tintColor = UIColorFromRGB(0xCF423C);
     searchBar.tintColor = UIColorFromRGB(0xCF423C);
+    
     /*Recette *recette;
     
     recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:managedObjectContext];
@@ -54,6 +55,7 @@
     recette.time = @"75";
     recette.origin = @"France";
     recette.picture = @"quiche.jpeg";
+    recette.rating = [NSNumber numberWithDouble:2.5];
     
     [self.dataController addRecette:recette];
     
@@ -67,6 +69,7 @@
     recette.time = @"30";
     recette.origin = @"Italie";
     recette.picture = @"bananes.jpeg";
+    recette.rating = [NSNumber numberWithDouble:2.3];
     
     [self.dataController addRecette:recette];
     
@@ -80,6 +83,7 @@
     recette.time = @"30";
     recette.origin = @"Canada";
     recette.picture = @"charlotte.jpeg";
+    recette.rating = [NSNumber numberWithDouble:2.0];
     
     [self.dataController addRecette:recette];
     
@@ -93,6 +97,7 @@
     recette.time = @"25";
     recette.origin = @"France";
     recette.picture = @"salade.jpeg";
+    recette.rating = [NSNumber numberWithDouble:1.5];
     
     [self.dataController addRecette:recette];
     

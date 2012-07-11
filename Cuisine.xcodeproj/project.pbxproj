@@ -10,8 +10,10 @@
 		6E2CF6C715A33234009CD18C /* RecetteDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2CF6C615A33234009CD18C /* RecetteDataController.m */; };
 		6E4E9BC8159B425C0021676C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4E9BC5159B42510021676C /* CoreData.framework */; };
 		6E4E9BCB159B42830021676C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E4E9BC9159B42830021676C /* Model.xcdatamodeld */; };
-		6E6D388C15A5A37200944FC9 /* Recette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D388B15A5A37200944FC9 /* Recette.m */; };
 		6E74E7F115ACA58F00B0404F /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E74E7F015ACA58F00B0404F /* ResultViewController.m */; };
+		6E77418915ADE6CA00B7C13B /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E77418715ADE6CA00B7C13B /* logo.png */; };
+		6E77418A15ADE6CA00B7C13B /* recherche.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E77418815ADE6CA00B7C13B /* recherche.png */; };
+		6E77418E15ADEB8C00B7C13B /* Recette.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E77418D15ADEB8C00B7C13B /* Recette.m */; };
 		6E7AD1E215AB500F00214038 /* RechercheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7AD1E115AB500F00214038 /* RechercheViewController.m */; };
 		6EC541D015908707000AE4E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541CF15908707000AE4E9 /* UIKit.framework */; };
 		6EC541D215908707000AE4E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC541D115908707000AE4E9 /* Foundation.framework */; };
@@ -47,10 +49,12 @@
 		6E2CF6C615A33234009CD18C /* RecetteDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecetteDataController.m; sourceTree = "<group>"; };
 		6E4E9BC5159B42510021676C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6E4E9BCA159B42830021676C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		6E6D388A15A5A37200944FC9 /* Recette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recette.h; sourceTree = "<group>"; };
-		6E6D388B15A5A37200944FC9 /* Recette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recette.m; sourceTree = "<group>"; };
 		6E74E7EF15ACA58F00B0404F /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		6E74E7F015ACA58F00B0404F /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		6E77418715ADE6CA00B7C13B /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		6E77418815ADE6CA00B7C13B /* recherche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recherche.png; sourceTree = "<group>"; };
+		6E77418C15ADEB8B00B7C13B /* Recette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recette.h; sourceTree = "<group>"; };
+		6E77418D15ADEB8C00B7C13B /* Recette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recette.m; sourceTree = "<group>"; };
 		6E7AD1E015AB500F00214038 /* RechercheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechercheViewController.h; sourceTree = "<group>"; };
 		6E7AD1E115AB500F00214038 /* RechercheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechercheViewController.m; sourceTree = "<group>"; };
 		6EC541CB15908707000AE4E9 /* Cuisine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuisine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,9 +151,9 @@
 				6EC541FD159097B4000AE4E9 /* FavorisViewController.h */,
 				6EC541FE159097B4000AE4E9 /* FavorisViewController.m */,
 				6EC541E115908707000AE4E9 /* MainStoryboard.storyboard */,
+				6E77418C15ADEB8B00B7C13B /* Recette.h */,
+				6E77418D15ADEB8C00B7C13B /* Recette.m */,
 				6E4E9BC9159B42830021676C /* Model.xcdatamodeld */,
-				6E6D388A15A5A37200944FC9 /* Recette.h */,
-				6E6D388B15A5A37200944FC9 /* Recette.m */,
 				6E2CF6C515A33234009CD18C /* RecetteDataController.h */,
 				6E2CF6C615A33234009CD18C /* RecetteDataController.m */,
 				6EC541EB15908707000AE4E9 /* RecettesViewController.h */,
@@ -160,9 +164,9 @@
 				6E7AD1E115AB500F00214038 /* RechercheViewController.m */,
 				6E74E7EF15ACA58F00B0404F /* ResultViewController.h */,
 				6E74E7F015ACA58F00B0404F /* ResultViewController.m */,
-				6EC541D615908707000AE4E9 /* Supporting Files */,
 				6EC541F7159092A1000AE4E9 /* Top10ViewController.h */,
 				6EC541F8159092A2000AE4E9 /* Top10ViewController.m */,
+				6EC541D615908707000AE4E9 /* Supporting Files */,
 				6EE6125015ADBDF3008CA95B /* Resources */,
 			);
 			path = Cuisine;
@@ -182,6 +186,8 @@
 		6EE6125015ADBDF3008CA95B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E77418715ADE6CA00B7C13B /* logo.png */,
+				6E77418815ADE6CA00B7C13B /* recherche.png */,
 				6EE6125915ADCB05008CA95B /* vichy.png */,
 				6EE6125115ADC4A3008CA95B /* bananes.jpeg */,
 				6EE6125215ADC4A3008CA95B /* charlotte.jpeg */,
@@ -266,6 +272,8 @@
 				6EE6125715ADC4A3008CA95B /* quiche.jpeg in Resources */,
 				6EE6125815ADC4A3008CA95B /* salade.jpeg in Resources */,
 				6EE6125A15ADCB05008CA95B /* vichy.png in Resources */,
+				6E77418915ADE6CA00B7C13B /* logo.png in Resources */,
+				6E77418A15ADE6CA00B7C13B /* recherche.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +293,10 @@
 				6EC541FF159097B4000AE4E9 /* FavorisViewController.m in Sources */,
 				6E4E9BCB159B42830021676C /* Model.xcdatamodeld in Sources */,
 				6E2CF6C715A33234009CD18C /* RecetteDataController.m in Sources */,
-				6E6D388C15A5A37200944FC9 /* Recette.m in Sources */,
 				6E7AD1E215AB500F00214038 /* RechercheViewController.m in Sources */,
 				6E74E7F115ACA58F00B0404F /* ResultViewController.m in Sources */,
 				6EE6125D15ADD668008CA95B /* CustomCell.m in Sources */,
+				6E77418E15ADEB8C00B7C13B /* Recette.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

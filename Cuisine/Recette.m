@@ -2,8 +2,8 @@
 //  Recette.m
 //  Cuisine
 //
-//  Created by SEKIMIA on 7/5/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Joseph El Khoury on 7/11/12.
+//
 //
 
 #import "Recette.h"
@@ -13,6 +13,7 @@
 
 @dynamic category;
 @dynamic difficulty;
+@dynamic favori;
 @dynamic id;
 @dynamic ingredients;
 @dynamic name;
@@ -20,6 +21,6 @@
 @dynamic picture;
 @dynamic preparation;
 @dynamic time;
-@dynamic favori;
+@dynamic rating;
 
 @end
