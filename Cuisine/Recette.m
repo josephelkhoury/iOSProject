@@ -19,7 +19,6 @@
 @dynamic origin;
 @dynamic picture;
 @dynamic preparation;
-@dynamic rating;
 @dynamic time;
 @dynamic favori;
 

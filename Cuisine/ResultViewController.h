@@ -10,6 +10,7 @@
 #import "Recette.h"
 #import "RecetteViewController.h"
 #import "RecetteDataController.h"
+#import "CustomCell.h"
 
 @interface ResultViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 {

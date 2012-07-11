@@ -10,6 +10,7 @@
 #import "RecetteDataController.h"
 #import "Recette.h"
 #import "RecetteViewController.h"
+#import "CustomCell.h"
 
 @interface FavorisViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

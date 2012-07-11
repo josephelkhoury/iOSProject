@@ -29,8 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
+    self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C);    // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -67,13 +66,17 @@
 {
     static NSString *CellIdentifier = @"RecetteCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     Recette *recette;
     
     recette = [self.results objectAtIndex:indexPath.row];
     
-    [[cell textLabel] setText:recette.name];
-    [[cell detailTextLabel] setText:recette.category];
+    cell.lblTitle.text = recette.name;
+    cell.lblCategory.text = recette.category;
+    cell.imgPicture.image = [UIImage imageNamed:recette.picture];
+    
+    cell.lblTitle.textColor = UIColorFromRGB(0xCF423C);
+    cell.lblCategory.textColor = UIColorFromRGB(0xCF423C);
     
     return cell;
 }

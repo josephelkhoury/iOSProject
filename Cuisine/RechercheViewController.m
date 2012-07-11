@@ -44,6 +44,8 @@
     }
     [self.dataController setMasterRecetteList:mutableFetchResults];
     
+    searchBar.tintColor = UIColorFromRGB(0xCF423C);
+    
     categoryArray = [[NSMutableArray alloc] init];
     [categoryArray addObject:@"Toutes"];
     [categoryArray addObject:@"Entrée"];
@@ -52,8 +54,11 @@
     
     originArray = [[NSMutableArray alloc] init];
     [originArray addObject:@"Toutes"];
-    [originArray addObject:@"France"];
-    [originArray addObject:@"Autre"];
+    for (Recette *rec in [self.dataController getRecettes:ALL])
+    {
+        if(![originArray containsObject:rec.origin])
+            [originArray addObject:rec.origin];
+    }
     
     difficultyArray = [[NSMutableArray alloc] init];
     [difficultyArray addObject:@"Indifférent"];
@@ -86,12 +91,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSMutableArray *res = [self rechercher];
     if ([[segue identifier] isEqualToString:@"showResult"]) 
     {
         ResultViewController *resultViewController = [segue destinationViewController];
         resultViewController.dataController = self.dataController;
         resultViewController.managedObjectContext = self.managedObjectContext;
-        resultViewController.results = [self rechercher];
+        resultViewController.results = res;
+        if ([res count] == 0)
+        {
+            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Résultat"
+                                                                message:@"Aucune recette trouvée" delegate:self 
+                                                      cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
     }
 }
 
@@ -130,7 +143,6 @@
     {
         for (Recette *recette in [self.dataController getRecettes:type])
         {
-            recette.ingredients = @"Salade, Tomate, Onion";
             if (([recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound))
             {
                 if ([lblDifficulty.text isEqualToString:@"Indifférent"] || [lblDifficulty.text isEqualToString:recette.difficulty])

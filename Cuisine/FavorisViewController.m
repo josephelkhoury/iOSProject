@@ -58,10 +58,14 @@
 {
 	static NSString *CellIdentifier = @"RecetteCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     Recette *recette = [[self.dataController getRecettes:FAVORI] objectAtIndex:indexPath.row];
-    [[cell textLabel] setText:recette.name];
-    [[cell detailTextLabel] setText:recette.category];
+    cell.lblTitle.text = recette.name;
+    cell.lblCategory.text = recette.category;
+    cell.imgPicture.image = [UIImage imageNamed:recette.picture];
+    
+    cell.lblTitle.textColor = UIColorFromRGB(0xCF423C);
+    cell.lblCategory.textColor = UIColorFromRGB(0xCF423C);
     
     return cell;
 }

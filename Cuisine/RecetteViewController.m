@@ -15,6 +15,8 @@
 @implementation RecetteViewController
 @synthesize lblName = _lblName;
 @synthesize lblCategory = _lblCategory;
+@synthesize lblDifficulty = _lblDifficulty;
+@synthesize photo = _photo;
 @synthesize btnFavoris = _btnFavoris;
 @synthesize recette = _recette;
 @synthesize managedObjectContext;
@@ -39,6 +41,8 @@
     {
         self.lblName.text = theRecette.name;
         self.lblCategory.text = theRecette.category;
+        self.lblDifficulty.text = theRecette.difficulty;
+        self.photo.image = [UIImage imageNamed:theRecette.picture];
         if (theRecette.favori == [NSNumber numberWithInt:1])
             self.btnFavoris.title = @"Supprimer des favoris";
     }
@@ -47,6 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C);
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
@@ -57,6 +62,8 @@
     [self setLblName:nil];
     [self setLblCategory:nil];
     [self setBtnFavoris:nil];
+    [self setLblDifficulty:nil];
+    [self setPhoto:nil];
     [super viewDidUnload];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

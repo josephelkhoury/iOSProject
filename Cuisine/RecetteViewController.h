@@ -12,6 +12,8 @@
 @interface RecetteViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCategory;
+@property (weak, nonatomic) IBOutlet UILabel *lblDifficulty;
+@property (weak, nonatomic) IBOutlet UIImageView *photo;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnFavoris;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

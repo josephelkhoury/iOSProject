@@ -11,6 +11,7 @@
 #import "Recette.h"
 #import "RecettesViewController.h"
 #import "RecetteViewController.h"
+#import "CustomCell.h"
 
 @interface RecettesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 {
@@ -18,6 +19,7 @@
     NSMutableArray *filteredListContent;
 }
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) RecetteDataController *dataController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (weak, nonatomic) IBOutlet UITableView *tblRecettes;
