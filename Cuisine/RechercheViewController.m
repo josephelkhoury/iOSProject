@@ -28,6 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Background
+    UIImage *patternImage = [UIImage imageNamed:@"vichy.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
     [request setEntity:entity];
@@ -53,10 +57,10 @@
     
     difficultyArray = [[NSMutableArray alloc] init];
     [difficultyArray addObject:@"Indifférent"];
-    [difficultyArray addObject:@"Facile"];
-    [difficultyArray addObject:@"Moyen"];
-    [difficultyArray addObject:@"Difficile"];
-    [difficultyArray addObject:@"Expert"];
+    [difficultyArray addObject:@"Etudiant"];
+    [difficultyArray addObject:@"Cuisinier occasionnel"];
+    [difficultyArray addObject:@"Gastronome"];
+    [difficultyArray addObject:@"Grand chef"];
     
     for (UIView *searchBarSubview in [searchBar subviews])
     {
