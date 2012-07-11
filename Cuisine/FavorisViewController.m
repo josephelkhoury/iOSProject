@@ -102,7 +102,13 @@
     }
 }
 
--(void)viewWillAppear:(BOOL)animated
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
     NSIndexPath *tableSelection = [self.tblRecettes indexPathForSelectedRow];
@@ -119,12 +125,15 @@
     }
     [self.dataController setMasterRecetteList:mutableFetchResults];
     [tblRecettes reloadData];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
 }
 
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void) viewWillDisappear:(BOOL)animated
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
 }
+
 
 @end

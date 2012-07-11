@@ -52,12 +52,6 @@
     }*/
 }
 
-- (void)viewWillAppear:(BOOL)animated 
-{		
-	NSIndexPath *tableSelection = [self.tblRecettes indexPathForSelectedRow];
-	[self.tblRecettes deselectRowAtIndexPath:tableSelection animated:NO];
-}
-
 - (void)viewDidUnload
 {
     [self setTblRecettes:nil];
@@ -193,4 +187,19 @@ shouldReloadTableForSearchScope:(NSInteger)searchOption
         listContent = [self.dataController getRecettes:DESSERT];
     [tblRecettes reloadData];
 }
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    NSIndexPath *tableSelection = [self.tblRecettes indexPathForSelectedRow];
+	[self.tblRecettes deselectRowAtIndexPath:tableSelection animated:NO];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 @end
