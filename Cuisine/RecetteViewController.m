@@ -119,11 +119,11 @@
         if(s == 0)
         {
             if(r != [ratingImages count])
-                [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"empty_star.png"]];
+                [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"star_empty.png"]];
         }
         else if(s > 0 && s <= 0.5)
         {
-            [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"half_star.png"]];
+            [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"star_half.png"]];
         }
         else if(s > 0.5 && s <= 1.0)
         {
@@ -131,7 +131,7 @@
         }
         for(int i=r+1;i<[ratingImages count];i++)
         {
-            [[ratingImages objectAtIndex:i] setImage:[UIImage imageNamed:@"empty_star.png"]];
+            [[ratingImages objectAtIndex:i] setImage:[UIImage imageNamed:@"star_empty.png"]];
         }		
     }
 }
