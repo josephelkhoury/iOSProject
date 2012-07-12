@@ -43,7 +43,7 @@
         int upperBound = [recettes count];
         int rand = lowerBound + arc4random() % (upperBound - lowerBound);
         Recette *rec = [recettes objectAtIndex:rand];
-        picture.image = [UIImage imageNamed:rec.picture];
+        self.picture.image = [UIImage imageNamed:rec.picture];
     }
 }
 

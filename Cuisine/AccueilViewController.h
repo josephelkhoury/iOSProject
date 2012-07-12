@@ -14,6 +14,6 @@
 
 @property (strong, nonatomic) RecetteDataController *dataController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UIImageView *picture;
+@property (strong, nonatomic) IBOutlet UIImageView *picture;
 
 @end

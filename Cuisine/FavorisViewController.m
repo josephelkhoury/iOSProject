@@ -91,8 +91,8 @@
         recette.favori = [NSNumber numberWithInt:0];
         NSError *error;
         [self.managedObjectContext save:&error];
-        [tblRecettes deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        [tblRecettes reloadData];
+        [self.tblRecettes deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tblRecettes reloadData];
     } 
 }
 
@@ -128,7 +128,7 @@
         // Handle the error.
     }
     [self.dataController setMasterRecetteList:mutableFetchResults];
-    [tblRecettes reloadData];
+    [self.tblRecettes reloadData];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
 }

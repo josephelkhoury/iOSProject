@@ -13,11 +13,11 @@
 @end
 
 @implementation RecetteViewController
-@synthesize lblName = _lblName;
-@synthesize lblCategory = _lblCategory;
-@synthesize lblDifficulty = _lblDifficulty;
-@synthesize photo = _photo;
-@synthesize btnFavoris = _btnFavoris;
+@synthesize lblName;
+@synthesize lblCategory;
+@synthesize lblDifficulty;
+@synthesize photo;
+@synthesize btnFavoris;
 @synthesize recette = _recette;
 @synthesize managedObjectContext;
 
@@ -45,6 +45,12 @@
         self.photo.image = [UIImage imageNamed:theRecette.picture];
         if (theRecette.favori == [NSNumber numberWithInt:1])
             self.btnFavoris.title = @"Supprimer des favoris";
+        else
+            self.btnFavoris.title = @"Ajouter aux favoris";
+        
+        // LISTE DES INGREDIENTS
+        NSArray *ingredients = [theRecette.ingredients componentsSeparatedByString: @","];
+        //
     }
 }
 
@@ -52,8 +58,22 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C);
+    
 	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
+}
+
+-(IBAction)share:(id)sender
+{
+    // Create the item to share (in this example, a url)
+    
+	UIImage *image = self.photo.image;
+    SHKItem *item = [SHKItem image:image title:self.lblName.text];
+    
+	// Get the ShareKit action sheet
+	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+
+    // Display the action sheet
+	[actionSheet showFromToolbar:self.navigationController.toolbar];
 }
 
 - (void)viewDidUnload
@@ -86,4 +106,12 @@
     NSError *error;
     [self.managedObjectContext save:&error];
 }
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self configureView];
+    [super viewWillAppear:animated];
+}
+
 @end

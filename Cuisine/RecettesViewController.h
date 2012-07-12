@@ -19,11 +19,11 @@
     NSMutableArray *filteredListContent;
 }
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) RecetteDataController *dataController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UITableView *tblRecettes;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segFilter;
+@property (strong, nonatomic) IBOutlet UITableView *tblRecettes;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segFilter;
 @property (strong, nonatomic) NSMutableArray *listContent;
 @property (strong, nonatomic) NSMutableArray *filteredListContent;
 

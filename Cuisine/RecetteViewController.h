@@ -8,17 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Recette.h"
+#import "SHK.h"
 
 @interface RecetteViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet UILabel *lblCategory;
-@property (weak, nonatomic) IBOutlet UILabel *lblDifficulty;
-@property (weak, nonatomic) IBOutlet UIImageView *photo;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnFavoris;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblCategory;
+@property (strong, nonatomic) IBOutlet UILabel *lblDifficulty;
+@property (strong, nonatomic) IBOutlet UIImageView *photo;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *btnFavoris;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) Recette *recette;
 
 - (IBAction)editFavori:(id)sender;
+-(IBAction)share:(id)sender;
 
 @end

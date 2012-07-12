@@ -15,7 +15,8 @@
 @implementation RechercheViewController
 @synthesize dataController = _dataController;
 @synthesize managedObjectContext;
-@synthesize picker;
+@synthesize pickerCategory;
+@synthesize pickerOrigin;
 @synthesize slider;
 @synthesize lblCategory;
 @synthesize lblOrigin;
@@ -44,7 +45,7 @@
     }
     [self.dataController setMasterRecetteList:mutableFetchResults];*/
     
-    searchBar.tintColor = UIColorFromRGB(0xCF423C);
+    self.searchBar.tintColor = UIColorFromRGB(0xCF423C);
     
     categoryArray = [[NSMutableArray alloc] init];
     [categoryArray addObject:@"Toutes"];
@@ -62,12 +63,12 @@
     
     difficultyArray = [[NSMutableArray alloc] init];
     [difficultyArray addObject:@"Indifférent"];
-    [difficultyArray addObject:@"Etudiant"];
+    [difficultyArray addObject:@"Étudiant"];
     [difficultyArray addObject:@"Cuisinier occasionnel"];
     [difficultyArray addObject:@"Gastronome"];
     [difficultyArray addObject:@"Grand chef"];
     
-    for (UIView *searchBarSubview in [searchBar subviews])
+    for (UIView *searchBarSubview in [self.searchBar subviews])
     {
         if ([searchBarSubview conformsToProtocol:@protocol(UITextInputTraits)]) 
         {
@@ -85,7 +86,7 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [searchBar resignFirstResponder];
+    [self.searchBar resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -115,48 +116,47 @@
 
 - (IBAction)chooseCategory:(id)sender
 {
-    picker.hidden = NO;
+    self.pickerCategory.hidden = NO;
+    self.pickerOrigin.hidden = YES;
     pickingCategory = YES;
     pickingOrigin = NO;
-    [picker reloadAllComponents];
+    [self.pickerCategory reloadAllComponents];
 }
 
 - (IBAction)chooseOrigin:(id)sender
 {
-    picker.hidden = NO;
+    self.pickerOrigin.hidden = NO;
+    self.pickerCategory.hidden = YES;
     pickingCategory = NO;
     pickingOrigin = YES;
-    [picker reloadAllComponents];
+    [self.pickerOrigin reloadAllComponents];
 }
 
 - (NSMutableArray *)rechercher
 {
     NSMutableArray *results = [[NSMutableArray alloc] init];
-    NSString *searchText = searchBar.text;
+    NSString *searchText = self.searchBar.text;
     RecetteType type;
     
-    if ([lblCategory.text isEqualToString:@"Toutes"])
+    if ([self.lblCategory.text isEqualToString:@"Toutes"])
         type = ALL;
-    else if ([lblCategory.text isEqualToString:@"Entrée"])
+    else if ([self.lblCategory.text isEqualToString:@"Entrée"])
         type = ENTREE;
-    else if ([lblCategory.text isEqualToString:@"Plat"])
+    else if ([self.lblCategory.text isEqualToString:@"Plat"])
         type = PLAT;
-    else if ([lblCategory.text isEqualToString:@"Dessert"])
+    else if ([self.lblCategory.text isEqualToString:@"Dessert"])
         type = DESSERT;
     
-    if (searchText != nil)
+    for (Recette *recette in [self.dataController getRecettes:type])
     {
-        for (Recette *recette in [self.dataController getRecettes:type])
+        if (searchText == nil || [recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound)
         {
-            if (([recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound))
+            if ([self.lblDifficulty.text isEqualToString:@"Indifférent"] || [self.lblDifficulty.text isEqualToString:recette.difficulty])
             {
-                if ([lblDifficulty.text isEqualToString:@"Indifférent"] || [lblDifficulty.text isEqualToString:recette.difficulty])
-                {
-                    if ([lblOrigin.text isEqualToString:@"Toutes"])
-                        [results addObject:recette];
-                    else if ([recette.origin isEqualToString:lblOrigin.text])
-                        [results addObject:recette];
-                }
+                if ([self.lblOrigin.text isEqualToString:@"Toutes"])
+                    [results addObject:recette];
+                else if ([recette.origin isEqualToString:self.lblOrigin.text])
+                    [results addObject:recette];
             }
         }
     }
@@ -165,9 +165,9 @@
 
 - (IBAction)valueChanged:(UISlider*)sender
 {
-    NSUInteger index = (NSUInteger)(slider.value + 0.5);
-    [slider setValue:index animated:NO];
-    lblDifficulty.text = [difficultyArray objectAtIndex:index]; 
+    NSUInteger index = (NSUInteger)(self.slider.value + 0.5);
+    [self.slider setValue:index animated:NO];
+    self.lblDifficulty.text = [difficultyArray objectAtIndex:index]; 
 }
                 
 
@@ -179,10 +179,15 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (pickingCategory)
-        lblCategory.text = [categoryArray objectAtIndex:row];
+    {
+        self.lblCategory.text = [categoryArray objectAtIndex:row];
+        self.pickerCategory.hidden = YES;
+    }
     if (pickingOrigin)
-        lblOrigin.text = [originArray objectAtIndex:row];
-    picker.hidden = YES;
+    {
+        self.lblOrigin.text = [originArray objectAtIndex:row];
+        self.pickerOrigin.hidden = YES;
+    }
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
@@ -205,7 +210,8 @@
 
 - (void)viewDidUnload
 {
-    [self setPicker:nil];
+    [self setPickerCategory:nil];
+    [self setPickerOrigin:nil];
     [self setLblCategory:nil];
     [self setLblOrigin:nil];
     [self setBtnCategory:nil];

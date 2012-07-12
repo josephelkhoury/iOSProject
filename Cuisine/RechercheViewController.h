@@ -22,14 +22,15 @@
 
 @property (strong, nonatomic) RecetteDataController *dataController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UILabel *lblCategory;
-@property (weak, nonatomic) IBOutlet UILabel *lblOrigin;
-@property (weak, nonatomic) IBOutlet UILabel *lblDifficulty;
-@property (weak, nonatomic) IBOutlet UIButton *btnCategory;
-@property (weak, nonatomic) IBOutlet UIButton *btnOrigin;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerCategory;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerOrigin;
+@property (strong, nonatomic) IBOutlet UISlider *slider;
+@property (strong, nonatomic) IBOutlet UILabel *lblCategory;
+@property (strong, nonatomic) IBOutlet UILabel *lblOrigin;
+@property (strong, nonatomic) IBOutlet UILabel *lblDifficulty;
+@property (strong, nonatomic) IBOutlet UIButton *btnCategory;
+@property (strong, nonatomic) IBOutlet UIButton *btnOrigin;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)chooseCategory:(id)sender;
 - (IBAction)chooseOrigin:(id)sender;
