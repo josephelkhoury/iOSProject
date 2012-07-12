@@ -16,8 +16,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *photo;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *btnFavoris;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @property (strong, nonatomic) Recette *recette;
+@property (strong, nonatomic) IBOutlet UILabel *lblRating;
+@property (strong, nonatomic) IBOutlet UILabel *lblIng;
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)editFavori:(id)sender;
 -(IBAction)share:(id)sender;

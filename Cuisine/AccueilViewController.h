@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "RecetteDataController.h"
 #import "Recette.h"
+#import "RecettesViewController.h"
 
 @interface AccueilViewController : UIViewController
 
 @property (strong, nonatomic) RecetteDataController *dataController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) IBOutlet UIImageView *picture;
+@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
+@property (strong, nonatomic) IBOutlet UIButton *btnImage;
+@property (strong, nonatomic) Recette *recette;
 
 @end

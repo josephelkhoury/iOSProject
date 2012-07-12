@@ -19,6 +19,9 @@
 @synthesize photo;
 @synthesize btnFavoris;
 @synthesize recette = _recette;
+@synthesize lblRating;
+@synthesize lblIng;
+@synthesize scrollView;
 @synthesize managedObjectContext;
 
 #pragma mark - Managing the detail item
@@ -40,17 +43,57 @@
     if (theRecette) 
     {
         self.lblName.text = theRecette.name;
+        lblName.textColor = UIColorFromRGB(0xCF423C);
         self.lblCategory.text = theRecette.category;
         self.lblDifficulty.text = theRecette.difficulty;
         self.photo.image = [UIImage imageNamed:theRecette.picture];
-        if (theRecette.favori == [NSNumber numberWithInt:1])
-            self.btnFavoris.title = @"Supprimer des favoris";
-        else
-            self.btnFavoris.title = @"Ajouter aux favoris";
+        self.lblRating.text = [NSString stringWithFormat:@"%f/5", theRecette.rating];
         
-        // LISTE DES INGREDIENTS
+        lblIng.textColor = UIColorFromRGB(0xCF423C);
+        if (theRecette.favori == [NSNumber numberWithInt:1])
+            [self.btnFavoris setImage:[UIImage imageNamed:@"star.png"]];
+        else
+            [self.btnFavoris setImage:[UIImage imageNamed:@"star_add.png"]];
+        
         NSArray *ingredients = [theRecette.ingredients componentsSeparatedByString: @","];
-        //
+        int y = 295;
+        for (NSString *ingredient in ingredients)
+        {
+            UILabel *lblIngredient = [[UILabel alloc] initWithFrame:CGRectMake(29, y, 271, 20)];
+            lblIngredient.text = ingredient;
+            lblIngredient.font = [UIFont fontWithName:@"TrebuchetMS" size:12];
+            lblIngredient.backgroundColor = [UIColor clearColor];
+            [scrollView addSubview:lblIngredient];
+            y += 20;
+        }
+        
+        y += 10;
+        
+        UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(29, y, 271, 20)];
+        lbl.text = @"Préparation";
+        lbl.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:13];
+        lbl.textColor = UIColorFromRGB(0xCF423C);
+        lbl.backgroundColor = [UIColor clearColor];
+        [scrollView addSubview:lbl];
+        
+        y += 20;
+        
+        CGSize size = [theRecette.preparation sizeWithFont:[UIFont fontWithName:@"TrebuchetMS" size:12]
+                      constrainedToSize:CGSizeMake(271.0, 500.0)
+                          lineBreakMode:UILineBreakModeWordWrap];
+        UITextView *txtPreparation = [[UITextView alloc] initWithFrame:CGRectMake(29, y, 271, size.height + 10)];
+        txtPreparation.editable = NO;
+        txtPreparation.scrollEnabled = NO;
+        txtPreparation.text = theRecette.preparation;
+        txtPreparation.font = [UIFont fontWithName:@"TrebuchetMS" size:12];
+        txtPreparation.backgroundColor = [UIColor clearColor];
+        [scrollView addSubview:txtPreparation];
+        y += size.height + 10;
+        if (y > 367)
+            y -= 367;
+        else
+            y = 367;
+        scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + y);
     }
 }
 
@@ -58,7 +101,8 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C);
-    
+    UIImage *patternImage = [UIImage imageNamed:@"vichy.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -84,6 +128,9 @@
     [self setBtnFavoris:nil];
     [self setLblDifficulty:nil];
     [self setPhoto:nil];
+    [self setLblRating:nil];
+    [self setScrollView:nil];
+    [self setLblIng:nil];
     [super viewDidUnload];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -96,12 +143,12 @@
     if (self.recette.favori == [NSNumber numberWithInt:1])
     {
         self.recette.favori = [NSNumber numberWithInt:0];
-        self.btnFavoris.title = @"Ajouter aux favoris";
+        [self.btnFavoris setImage:[UIImage imageNamed:@"star_add.png"]];
     }
     else
     {
         self.recette.favori = [NSNumber numberWithInt:1];
-        self.btnFavoris.title = @"Supprimer des favoris";
+        [self.btnFavoris setImage:[UIImage imageNamed:@"star.png"]];
     }
     NSError *error;
     [self.managedObjectContext save:&error];

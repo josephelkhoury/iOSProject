@@ -15,7 +15,9 @@
 @implementation AccueilViewController
 @synthesize dataController = _dataController;
 @synthesize managedObjectContext;
-@synthesize picture;
+@synthesize lblTitle;
+@synthesize btnImage;
+@synthesize recette;
 
 - (void)viewDidLoad
 {
@@ -42,14 +44,17 @@
         int lowerBound = 0;
         int upperBound = [recettes count];
         int rand = lowerBound + arc4random() % (upperBound - lowerBound);
-        Recette *rec = [recettes objectAtIndex:rand];
-        self.picture.image = [UIImage imageNamed:rec.picture];
+        recette = [recettes objectAtIndex:rand];
+        [btnImage setImage:[UIImage imageNamed:recette.picture] forState:UIControlStateNormal];
+        lblTitle.text = recette.name;
     }
 }
 
 - (void)viewDidUnload
 {
-    [self setPicture:nil];
+    [self setRecette:nil];
+    [self setLblTitle:nil];
+    [self setBtnImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -58,6 +63,17 @@
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowRecetteDetails"]) 
+    {
+        RecetteViewController *detailViewController = [segue destinationViewController];
+        detailViewController.recette = recette;
+        detailViewController.managedObjectContext = self.managedObjectContext;
+    }
+}
+
 
 - (void) viewWillAppear:(BOOL)animated
 {
