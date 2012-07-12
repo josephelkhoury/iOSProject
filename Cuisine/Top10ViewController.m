@@ -29,17 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
-    [request setEntity:entity];
-    
-    NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    if (mutableFetchResults == nil) 
-    {
-        // Handle the error.
-    }
-    [self.dataController setMasterRecetteList:mutableFetchResults];*/
     
     top10 = [self.dataController getRecettes:TOPTEN];
     [self.tableView reloadData];

@@ -32,18 +32,6 @@
     // Background
     UIImage *patternImage = [UIImage imageNamed:@"vichy.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-
-    /*NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
-    [request setEntity:entity];
-    
-    NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    if (mutableFetchResults == nil) 
-    {
-        // Handle the error.
-    }
-    [self.dataController setMasterRecetteList:mutableFetchResults];*/
     
     self.searchBar.tintColor = UIColorFromRGB(0xCF423C);
     

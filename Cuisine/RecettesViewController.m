@@ -24,18 +24,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    /*NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:managedObjectContext];
-    [request setEntity:entity];
-    
-    NSError *error = nil;
-    NSMutableArray *mutableFetchResults = [[managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
-    if (mutableFetchResults == nil) 
-    {
-        // Handle the error.
-    }
-    [self.dataController setMasterRecetteList:mutableFetchResults];*/
 
     listContent = [self.dataController getRecettes:ALL];
     [self.tblRecettes reloadData];
@@ -122,7 +110,6 @@
         RecetteViewController *detailViewController = [segue destinationViewController];
         
         detailViewController.recette = [self.listContent objectAtIndex:[self.tblRecettes indexPathForSelectedRow].row];
-        
         detailViewController.managedObjectContext = self.managedObjectContext;
     }
 }
@@ -134,15 +121,10 @@
 
 	for (Recette *recette in listContent)
 	{
-		//if ([scope isEqualToString:@"Toutes"] || [recette.category isEqualToString:scope])
-		//{
-			NSComparisonResult nameResult = [recette.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
+        NSComparisonResult nameResult = [recette.name compare:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchText length])];
 
-            if (nameResult == NSOrderedSame)
-			{
-				[self.filteredListContent addObject:recette];
-            }
-		//}
+        if (nameResult == NSOrderedSame)
+            [self.filteredListContent addObject:recette];
 	}
 }
 
