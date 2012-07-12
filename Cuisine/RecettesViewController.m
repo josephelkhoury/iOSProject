@@ -24,7 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C); 
     listContent = [self.dataController getRecettes:ALL];
     [self.tblRecettes reloadData];
     filteredListContent = [[NSMutableArray alloc] init];

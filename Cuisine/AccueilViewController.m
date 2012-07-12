@@ -24,7 +24,7 @@
     [super viewDidLoad];
     UIImage *patternImage = [UIImage imageNamed:@"vichy.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-    
+    self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C); 
     NSMutableArray *recettes = [self.dataController getRecettes:ALL];
     
     if ([recettes count] > 0)

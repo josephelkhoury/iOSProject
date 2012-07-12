@@ -29,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.tintColor = UIColorFromRGB(0xCF423C); 
     top10 = [self.dataController getRecettes:TOPTEN];
     [self.tableView reloadData];
 	// Do any additional setup after loading the view.
