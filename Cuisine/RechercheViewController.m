@@ -48,6 +48,7 @@
         if(![originArray containsObject:rec.origin])
             [originArray addObject:rec.origin];
     }
+    [originArray sortUsingSelector:@selector(compare:)];
     
     difficultyArray = [[NSMutableArray alloc] init];
     [difficultyArray addObject:@"Indifférent"];

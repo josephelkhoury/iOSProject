@@ -149,14 +149,14 @@
 {
     // Create the item to share (in this example, a url)
     
-	/*UIImage *image = self.photo.image;
+	UIImage *image = [UIImage imageNamed:self.recette.picture];
     SHKItem *item = [SHKItem image:image title:self.lblName.text];
     
 	// Get the ShareKit action sheet
 	SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
 
     // Display the action sheet
-	[actionSheet showFromToolbar:self.navigationController.toolbar];*/
+	[actionSheet showFromToolbar:self.navigationController.toolbar];
 }
 
 - (void)viewDidUnload

@@ -69,7 +69,12 @@
                 [all addObject:recette];
             }
         }
-        return all;
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [all sortedArrayUsingDescriptors:sortDescriptors];
+        return [NSMutableArray arrayWithArray:sortedArray];
     }
     else if (type == ENTREE)
     {
@@ -82,7 +87,12 @@
                     [entrees addObject:recette];
             }
         }
-        return entrees;
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [entrees sortedArrayUsingDescriptors:sortDescriptors];
+        return [NSMutableArray arrayWithArray:sortedArray];
     }
     else if (type == PLAT)
     {
@@ -95,7 +105,12 @@
                     [plats addObject:recette];
             }
         }
-        return plats;
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [plats sortedArrayUsingDescriptors:sortDescriptors];
+        return [NSMutableArray arrayWithArray:sortedArray];
     }
     else if (type == DESSERT)
     {
@@ -108,7 +123,12 @@
                     [desserts addObject:recette];
             }
         }
-        return desserts;
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [desserts sortedArrayUsingDescriptors:sortDescriptors];
+        return [NSMutableArray arrayWithArray:sortedArray];
     }
     else if (type == FAVORI)
     {
@@ -118,7 +138,12 @@
             if (recette.favori == [NSNumber numberWithInt:1])
                 [favoris addObject:recette];
         }
-        return favoris;
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
+                                                     ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [favoris sortedArrayUsingDescriptors:sortDescriptors];
+        return [NSMutableArray arrayWithArray:sortedArray];
     }
     else if (type == TOPTEN)
     {

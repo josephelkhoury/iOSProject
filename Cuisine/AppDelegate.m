@@ -26,7 +26,7 @@
     }
     NSError *error = nil;
     
-    /*Recette *recette;
+    Recette *recette;
      
     recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:self.managedObjectContext];
      
@@ -36,7 +36,7 @@
      recette.preparation = @"Préchauffer le four à thermostat 6 (180°C). Casser les oeufs dans un saladier. Les mettre dans un grand plat, ajouter la farine, bien mélanger. Saler et poivrer. Ajouter les champignons, surtout ne pas mélanger. Mettre au four 1/4 d'heure. Sortir du four, ajouter le fromage râpé sur le dessus. Remettre au four encore un quart d'heure. Manger la tourte tout de suite aprés l'avoir sortie.";
      recette.difficulty = @"Cuisinier occasionnel";
      recette.time = @"75";
-     recette.origin = @"France";
+     recette.origin = @"Bolivie";
      recette.picture = @"quiche.png";
      recette.rating = [NSNumber numberWithDouble:2.5];
      
@@ -58,11 +58,11 @@
      
      recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:self.managedObjectContext];
      
-     recette.name = @"Buche aux langues de chat";
+     recette.name = @"Buche de noel aux fruits";
      recette.category = @"Dessert";
      recette.ingredients = @"100 g de chocolat,60 langues de chat,40 g de sucre en poudre,4 œufs,Un peu de chocolat râpé,De la crème chantilly";
      recette.preparation = @"La mousse de chocolat : Faire fondre le chocolat au bain-marie. Casser le œufs en séparant les blancs des jaunes. Fouetter les jaunes avec le sucre et ajouter le chocolat fondu. Battre les blancs en neige avec un peu de sel et les incorporer à la mousse de chocolat. Mettre 1 heure au réfrigérateur. Couvrir de film le fond des parois d'un moule à charlotte. Tapisser le moule de langues, face bombée vers l'extérieur. Verser le mélange et le recouvrir de langues de chat. Réserver 3 heures au réfrigérateur. Retourner la charlotte sur un plat. Enlever le film alimentaire et décorer de crème chantilly et de chocolat râpé. Servir aussitôt assez frais.";
-     recette.difficulty = @"Étudiant";
+     recette.difficulty = @"Grand chef";
      recette.time = @"30";
      recette.origin = @"Canada";
      recette.picture = @"charlotte.png";
@@ -74,9 +74,8 @@
      
      recette.name = @"Maki & sushi";
      recette.category = @"Plat";
-     recette.ingredients = @"100 g de chocolat,60 langues de chat,40 g de sucre en poudre,4 œufs,Un peu de chocolat râpé,De la crème chantilly";
-     recette.preparation = @"250 g d'escalopes de poulet,1 poivron vert ou jaune,1 tomate,1 pomme (type canada),1 salade,1/2 Neufchâtel,éventuellement du pain,sel et poivre,huile d'olive";
-     recette.difficulty = @"Gastronome";
+     recette.ingredients = @"200g de riz gluant, 100g de saumon, 1 avocat, 6 feuilles d'algues, sauce soja, wazabi";
+     recette.preparation = @"La mousse de chocolat : Faire fondre le chocolat au bain-marie. Casser le œufs en séparant les blancs des jaunes. Fouetter les jaunes avec le sucre et ajouter le chocolat fondu. Battre les blancs en neige avec un peu de sel et les incorporer à la mousse de chocolat. Mettre 1 heure au réfrigérateur. Couvrir de film le fond des parois d'un moule à charlotte. Tapisser le moule de langues, face bombée vers l'extérieur. Verser le mélange et le recouvrir de langues de chat. Réserver 3 heures au réfrigérateur. Retourner la charlotte sur un plat. Enlever le film alimentaire et décorer de crème chantilly et de chocolat râpé. Servir aussitôt assez frais.";
      recette.time = @"25";
      recette.origin = @"France";
      recette.picture = @"salade.png";
@@ -87,8 +86,8 @@
     recette.name = @"Noix de Saint-Jacques sur fondue de poireaux";
     recette.category = @"Entrée";
     recette.ingredients = @"100 g de chocolat,60 langues de chat,40 g de sucre en poudre,4 œufs,Un peu de chocolat râpé,De la crème chantilly";
-    recette.preparation = @"250 g d'escalopes de poulet,1 poivron vert ou jaune,1 tomate,1 pomme (type canada),1 salade,1/2 Neufchâtel,éventuellement du pain,sel et poivre,huile d'olive";
-    recette.difficulty = @"Expert";
+    recette.preparation = @"La mousse de chocolat : Faire fondre le chocolat au bain-marie. Casser le œufs en séparant les blancs des jaunes. Fouetter les jaunes avec le sucre et ajouter le chocolat fondu. Battre les blancs en neige avec un peu de sel et les incorporer à la mousse de chocolat. Mettre 1 heure au réfrigérateur. Couvrir de film le fond des parois d'un moule à charlotte. Tapisser le moule de langues, face bombée vers l'extérieur. Verser le mélange et le recouvrir de langues de chat. Réserver 3 heures au réfrigérateur. Retourner la charlotte sur un plat. Enlever le film alimentaire et décorer de crème chantilly et de chocolat râpé. Servir aussitôt assez frais.";
+    recette.difficulty = @"Grand chef";
     recette.time = @"25";
     recette.origin = @"France";
     recette.picture = @"poireaux.png";
@@ -98,7 +97,7 @@
      if (![self.managedObjectContext save:&error])
      {
      // Handle the error.
-     }*/
+     }
 
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:context];

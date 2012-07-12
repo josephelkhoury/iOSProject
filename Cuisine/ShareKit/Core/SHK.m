@@ -32,7 +32,7 @@
 #import "SHKOfflineSharer.h"
 #import "SFHFKeychainUtils.h"
 #import "Reachability.h"
-#import <objc/objc-class.h>
+#import </usr/include/objc/objc-class.h>
 #import <MessageUI/MessageUI.h>
 
 
@@ -117,15 +117,19 @@ BOOL SHKinit;
 	if (topViewController == nil)
 		NSAssert(NO, @"ShareKit: There is no view controller to display from");
 	
-		
+    
 	// If a view is already being shown, hide it, and then try again
 	if (currentView != nil)
 	{
 		self.pendingView = vc;
-		[[currentView parentViewController] dismissModalViewControllerAnimated:YES];
-		return;
+        
+		//[[currentView parentViewController] dismissModalViewControllerAnimated:YES];
+		// Changed for iOS 5
+        [currentView dismissModalViewControllerAnimated:YES];
+        
+        return;
 	}
-		
+    
 	// Wrap the view in a nav controller if not already
 	if (![vc respondsToSelector:@selector(pushViewController:animated:)])
 	{
@@ -157,7 +161,7 @@ BOOL SHKinit;
 		[(UINavigationController *)vc toolbar].barStyle = [SHK barStyle];
 		self.currentView = vc;
 	}
-		
+    
 	self.pendingView = nil;		
 }
 
@@ -173,15 +177,9 @@ BOOL SHKinit;
 	
 	if (currentView != nil)
 	{
-		// Dismiss the modal view
-		if ([currentView parentViewController] != nil)
-		{
-			self.isDismissingView = YES;
-			[[currentView parentViewController] dismissModalViewControllerAnimated:animated];
-		}
-		
-		else
-			self.currentView = nil;
+		// Dismiss the modal view        
+        // Changed for iOS 5        
+        [currentView dismissModalViewControllerAnimated:animated];        
 	}
 }
 
@@ -208,7 +206,7 @@ BOOL SHKinit;
 		return;
 	}
 }
-										   
+
 - (UIViewController *)getTopViewController
 {
 	UIViewController *topViewController = rootViewController;
@@ -216,7 +214,7 @@ BOOL SHKinit;
 		topViewController = topViewController.modalViewController;
 	return topViewController;
 }
-			
+
 + (UIBarStyle)barStyle
 {
 	if ([SHKBarStyle isEqualToString:@"UIBarStyleBlack"])		
@@ -267,7 +265,7 @@ BOOL SHKinit;
 + (NSArray *)favoriteSharersForType:(SHKShareType)type
 {	
 	NSArray *favoriteSharers = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%i", SHK_FAVS_PREFIX_KEY, type]];
-		
+    
 	// set defaults
 	if (favoriteSharers == nil)
 	{
@@ -278,7 +276,7 @@ BOOL SHKinit;
 				break;
 				
 			case SHKShareTypeImage:
-				favoriteSharers = [NSArray arrayWithObjects:@"SHKMail",@"SHKFacebook",@"SHKCopy",nil];
+				favoriteSharers = [NSArray arrayWithObjects:@"SHKPhotoAlbum",@"SHKFacebook",@"SHKTwitter",nil];
 				break;
 				
 			case SHKShareTypeText:
@@ -498,7 +496,7 @@ static NSDictionary *sharersDictionary = nil;
 		
 		if (helper.offlineQueue == nil)
 			helper.offlineQueue = [[NSOperationQueue alloc] init];		
-	
+        
 		SHKItem *item;
 		NSString *sharerId, *uid;
 		
@@ -514,7 +512,7 @@ static NSDictionary *sharersDictionary = nil;
 		
 		// Remove offline queue - TODO: only do this if everything was successful?
 		[[NSFileManager defaultManager] removeItemAtPath:[self offlineQueueListPath] error:nil];
-
+        
 	}
 }
 
