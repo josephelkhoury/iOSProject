@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Recette.h"
-#import "SHK.h"
 
 @interface RecetteViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
