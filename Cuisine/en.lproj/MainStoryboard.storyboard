@@ -617,7 +617,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="HLM-47-Mf7">
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="HLM-47-Mf7">
                                         <rect key="frame" x="224" y="263" width="76" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="13"/>
@@ -656,6 +656,33 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="pgv-kS-kJD">
+                                        <rect key="frame" x="127" y="38" width="91" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star.png" id="7Ki-jT-y91">
+                                        <rect key="frame" x="257" y="264" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star.png" id="VXg-de-d16">
+                                        <rect key="frame" x="277" y="264" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star.png" id="u7U-gr-HuS">
+                                        <rect key="frame" x="237" y="264" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star.png" id="b3T-sM-Tw4">
+                                        <rect key="frame" x="217" y="264" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="star.png" id="Yii-we-ddq">
+                                        <rect key="frame" x="197" y="264" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -693,10 +720,16 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnFavoris" destination="75Z-hD-8ZE" id="msb-dE-DpD"/>
+                        <outlet property="imgStar1" destination="Yii-we-ddq" id="5gR-t8-TxK"/>
+                        <outlet property="imgStar2" destination="b3T-sM-Tw4" id="Vqx-1k-ZlF"/>
+                        <outlet property="imgStar3" destination="u7U-gr-HuS" id="3p6-OH-H47"/>
+                        <outlet property="imgStar4" destination="7Ki-jT-y91" id="DcM-Yv-ZRO"/>
+                        <outlet property="imgStar5" destination="VXg-de-d16" id="ae6-gt-7DI"/>
                         <outlet property="lblCategory" destination="kJV-Mz-LKc" id="3yz-hH-FcS"/>
                         <outlet property="lblDifficulty" destination="Xin-rQ-zC4" id="dcu-9c-rOB"/>
                         <outlet property="lblIng" destination="mJC-QS-aPL" id="0bH-6V-vwu"/>
                         <outlet property="lblName" destination="1xG-40-thW" id="xLW-3l-NaM"/>
+                        <outlet property="lblOrigin" destination="pgv-kS-kJD" id="MD4-Fh-4B2"/>
                         <outlet property="lblRating" destination="HLM-47-Mf7" id="rfh-C2-56D"/>
                         <outlet property="photo" destination="Qkf-6l-iBY" id="d9L-S5-Yuv"/>
                         <outlet property="scrollView" destination="vdF-Xs-qbt" id="0BO-ZC-quH"/>
@@ -768,10 +801,16 @@
                 <relationship kind="action" name="editFavori:"/>
                 <relationship kind="action" name="share:"/>
                 <relationship kind="outlet" name="btnFavoris" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="imgStar1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgStar2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgStar3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgStar4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgStar5" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="lblCategory" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblDifficulty" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblIng" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblOrigin" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="lblRating" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="photo" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>

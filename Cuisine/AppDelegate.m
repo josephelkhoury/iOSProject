@@ -80,7 +80,7 @@
      recette.time = @"25";
      recette.origin = @"France";
      recette.picture = @"salade.png";
-     recette.rating = [NSNumber numberWithDouble:5];
+     recette.rating = [NSNumber numberWithDouble:3];
      
     recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:self.managedObjectContext];
     

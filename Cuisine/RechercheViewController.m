@@ -149,7 +149,7 @@
     
     for (Recette *recette in [self.dataController getRecettes:type])
     {
-        if (searchText == nil || [recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound)
+        if (searchText == nil || [searchText isEqualToString:@""] || [recette.name rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound || [recette.ingredients rangeOfString:searchText options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)].location != NSNotFound)
         {
             if ([self.lblDifficulty.text isEqualToString:@"Indifférent"] || [self.lblDifficulty.text isEqualToString:recette.difficulty])
             {

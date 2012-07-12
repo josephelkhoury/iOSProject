@@ -20,7 +20,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblRating;
 @property (strong, nonatomic) IBOutlet UILabel *lblIng;
 
+@property (strong, nonatomic) IBOutlet UILabel *lblOrigin;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgStar1;
+@property (strong, nonatomic) IBOutlet UIImageView *imgStar2;
+@property (strong, nonatomic) IBOutlet UIImageView *imgStar3;
+@property (strong, nonatomic) IBOutlet UIImageView *imgStar4;
+@property (strong, nonatomic) IBOutlet UIImageView *imgStar5;
 
 - (IBAction)editFavori:(id)sender;
 -(IBAction)share:(id)sender;

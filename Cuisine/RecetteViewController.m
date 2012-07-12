@@ -21,7 +21,13 @@
 @synthesize recette = _recette;
 @synthesize lblRating;
 @synthesize lblIng;
+@synthesize lblOrigin;
 @synthesize scrollView;
+@synthesize imgStar1;
+@synthesize imgStar2;
+@synthesize imgStar3;
+@synthesize imgStar4;
+@synthesize imgStar5;
 @synthesize managedObjectContext;
 
 #pragma mark - Managing the detail item
@@ -48,6 +54,7 @@
         self.lblDifficulty.text = theRecette.difficulty;
         self.photo.image = [UIImage imageNamed:theRecette.picture];
         self.lblRating.text = [NSString stringWithFormat:@"%f/5", theRecette.rating];
+        self.lblOrigin.text = theRecette.origin;
         
         lblIng.textColor = UIColorFromRGB(0xCF423C);
         if (theRecette.favori == [NSNumber numberWithInt:1])
@@ -94,6 +101,38 @@
         else
             y = 367;
         scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + y);
+        
+        NSMutableArray *ratingImages = [[NSMutableArray alloc] init];
+        [ratingImages addObject:self.imgStar1];
+        [ratingImages addObject:self.imgStar2];
+        [ratingImages addObject:self.imgStar3];
+        [ratingImages addObject:self.imgStar4];
+        [ratingImages addObject:self.imgStar5];
+        
+        double rating = [theRecette.rating doubleValue];
+        double r = floor(rating);
+        double s = rating - r;
+        for(int i=0;i<r;i++)
+        {
+            [[ratingImages objectAtIndex:i] setImage:[UIImage imageNamed:@"star.png"]];
+        }
+        if(s == 0)
+        {
+            if(r != [ratingImages count])
+                [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"empty_star.png"]];
+        }
+        else if(s > 0 && s <= 0.5)
+        {
+            [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"half_star.png"]];
+        }
+        else if(s > 0.5 && s <= 1.0)
+        {
+            [[ratingImages objectAtIndex:r] setImage:[UIImage imageNamed:@"star.png"]];
+        }
+        for(int i=r+1;i<[ratingImages count];i++)
+        {
+            [[ratingImages objectAtIndex:i] setImage:[UIImage imageNamed:@"empty_star.png"]];
+        }		
     }
 }
 
@@ -131,6 +170,12 @@
     [self setLblRating:nil];
     [self setScrollView:nil];
     [self setLblIng:nil];
+    [self setLblOrigin:nil];
+    [self setImgStar1:nil];
+    [self setImgStar2:nil];
+    [self setImgStar3:nil];
+    [self setImgStar4:nil];
+    [self setImgStar5:nil];
     [super viewDidUnload];
 }
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
