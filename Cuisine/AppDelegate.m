@@ -26,7 +26,7 @@
     }
     NSError *error = nil;
     
-    Recette *recette;
+    /*Recette *recette;
      
     recette = (Recette *)[NSEntityDescription insertNewObjectForEntityForName:@"Recette" inManagedObjectContext:self.managedObjectContext];
      
@@ -76,6 +76,7 @@
      recette.category = @"Plat";
      recette.ingredients = @"200g de riz gluant, 100g de saumon, 1 avocat, 6 feuilles d'algues, sauce soja, wazabi";
      recette.preparation = @"La mousse de chocolat : Faire fondre le chocolat au bain-marie. Casser le œufs en séparant les blancs des jaunes. Fouetter les jaunes avec le sucre et ajouter le chocolat fondu. Battre les blancs en neige avec un peu de sel et les incorporer à la mousse de chocolat. Mettre 1 heure au réfrigérateur. Couvrir de film le fond des parois d'un moule à charlotte. Tapisser le moule de langues, face bombée vers l'extérieur. Verser le mélange et le recouvrir de langues de chat. Réserver 3 heures au réfrigérateur. Retourner la charlotte sur un plat. Enlever le film alimentaire et décorer de crème chantilly et de chocolat râpé. Servir aussitôt assez frais.";
+     recette.difficulty = @"Gastronome";
      recette.time = @"25";
      recette.origin = @"France";
      recette.picture = @"salade.png";
@@ -97,7 +98,7 @@
      if (![self.managedObjectContext save:&error])
      {
      // Handle the error.
-     }
+     }*/
 
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recette" inManagedObjectContext:context];
